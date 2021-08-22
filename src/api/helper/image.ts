@@ -3,7 +3,8 @@ import { PageData } from '~/types/page-data'
 
 export async function uploadImage(pageData: PageData): Promise<string> {
   const endpoint = 'https://api.cloudinary.com/v1_1/ymkz/image/upload'
-  const params = `?upload_preset=clip&public_id=${pageData.id}&file=${pageData.imageUrl}`
+  const preset = 'clip-image'
+  const params = `?upload_preset=${preset}&public_id=${pageData.id}&file=${pageData.imageUrl}`
   const response = await fetch(`${endpoint}${params}`, { method: 'POST' })
   const { secure_url } = await response.json()
   return secure_url
