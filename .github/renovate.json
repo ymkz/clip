@@ -3,9 +3,31 @@
   "extends": [
     "config:base",
     ":timezone(Asia/Tokyo)",
-    ":automergeMinor",
     ":maintainLockFilesWeekly"
   ],
   "schedule": ["after 9am on saturday", "before 12am on saturday"],
-  "dependencyDashboard": true
+  "dependencyDashboard": true,
+  "packageRules": [
+    {
+      "matchDepTypes": ["dependencies"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "dependencies (non-major)",
+      "groupSlug": "dependencies",
+      "automerge": true
+    },
+    {
+      "matchDepTypes": ["devDependencies"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "dev-dependencies (non-major)",
+      "groupSlug": "dev-dependencies",
+      "automerge": true
+    },
+    {
+      "matchDepTypes": ["action"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "github-actions (non-major)",
+      "groupSlug": "github-actions",
+      "automerge": true
+    }
+  ]
 }
