@@ -1,25 +1,25 @@
-import { PageData } from '~/types/page-data'
+import { Page } from '~/types/page'
 
-export const getAll = async (): Promise<PageData[]> => {
+export const getAll = async (): Promise<Page[]> => {
   const data = (await DB.get('data')) ?? '[]'
   return JSON.parse(data)
 }
 
-export const addOne = async (data: PageData): Promise<void> => {
+export const addOne = async (data: Page): Promise<void> => {
   const prev = await getAll()
   const next = [...prev, data]
   await DB.put('data', JSON.stringify(next))
 }
 
-export const removeOne = async (id: PageData['id']): Promise<void> => {
+export const removeOne = async (id: Page['id']): Promise<void> => {
   const prev = await getAll()
   const next = prev.filter((item) => item.id !== id)
   await DB.put('data', JSON.stringify(next))
 }
 
 export const updateOneOfImageUrl = async (
-  id: PageData['id'],
-  imageUrl: PageData['imageUrl']
+  id: Page['id'],
+  imageUrl: Page['imageUrl']
 ): Promise<void> => {
   const prev = await getAll()
   const next = prev.map((item) =>

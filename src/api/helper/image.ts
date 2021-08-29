@@ -1,16 +1,16 @@
 import { encode, toHEX } from '~/api/helper/_internal'
-import { PageData } from '~/types/page-data'
+import { Page } from '~/types/page'
 
-export async function uploadImage(pageData: PageData): Promise<string> {
+export async function uploadImage(page: Page): Promise<string> {
   const endpoint = 'https://api.cloudinary.com/v1_1/ymkz/image/upload'
   const preset = 'clip-image'
-  const params = `?upload_preset=${preset}&public_id=${pageData.id}&file=${pageData.imageUrl}`
+  const params = `?upload_preset=${preset}&public_id=${page.id}&file=${page.imageUrl}`
   const response = await fetch(`${endpoint}${params}`, { method: 'POST' })
   const { secure_url } = await response.json()
   return secure_url
 }
 
-export async function removeImage(id: PageData['id']): Promise<void> {
+export async function removeImage(id: Page['id']): Promise<void> {
   const endpoint = 'https://api.cloudinary.com/v1_1/ymkz/image/destroy'
   const timestamp = Date.now().toString()
   const base = `invalidate=true&public_id=clip/${id}&timestamp=${timestamp}`

@@ -1,8 +1,8 @@
 import { IconImage } from '~/components/icon/image'
-import { PageData } from '~/types/page-data'
+import { Page } from '~/types/page'
 
 type Props = {
-  image: PageData['imageUrl']
+  image: Page['imageUrl']
 }
 
 export const ItemImage = ({ image }: Props) => {

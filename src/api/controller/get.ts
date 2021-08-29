@@ -1,10 +1,10 @@
 import { ErrorCode } from '~/api/helper/error'
 import { getAll } from '~/api/helper/kv'
 import { internalWorkerError, okJson } from '~/api/helper/response'
-import { PageData } from '~/types/page-data'
+import { Page } from '~/types/page'
 
 export const get = async (): Promise<Response> => {
-  let result: PageData[]
+  let result: Page[]
 
   try {
     result = await getAll()

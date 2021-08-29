@@ -4,7 +4,7 @@ import { uploadImage } from '~/api/helper/image'
 import { addOne, updateOneOfImageUrl } from '~/api/helper/kv'
 import { scrapePageData } from '~/api/helper/parse'
 import { badRequest, internalWorkerError, ok } from '~/api/helper/response'
-import { PageData } from '~/types/page-data'
+import { Page } from '~/types/page'
 
 type Body = {
   url: string
@@ -15,7 +15,7 @@ export const add = async (
   event: FetchEvent
 ): Promise<Response> => {
   let body: Body
-  let result: PageData
+  let result: Page
 
   try {
     body = await req.json?.()

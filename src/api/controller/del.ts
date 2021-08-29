@@ -8,7 +8,7 @@ type Body = {
   id: string
 }
 
-export const remove = async (
+export const del = async (
   req: Request,
   event: FetchEvent
 ): Promise<Response> => {

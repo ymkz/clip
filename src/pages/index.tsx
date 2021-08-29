@@ -1,16 +1,16 @@
 import { Header } from '~/components/header'
 import { Item } from '~/components/item'
-import { usePageDataQuery } from '~/hooks/page-data'
+import { usePageDataQuery } from '~/hooks/page'
 
 export const IndexPage = () => {
-  const { data: pageData } = usePageDataQuery()
+  const { data: pageList } = usePageDataQuery()
 
   return (
     <>
       <Header />
       <ul className="list">
-        {pageData?.map((pageItem) => (
-          <Item pageData={pageItem} />
+        {pageList?.map((page) => (
+          <Item page={page} />
         ))}
       </ul>
     </>

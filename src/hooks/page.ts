@@ -1,9 +1,9 @@
 import { useMutation, useQuery, useQueryClient } from 'react-query'
-import { PageData } from '~/types/page-data'
+import { Page } from '~/types/page'
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const usePageDataQuery = () => {
-  return useQuery<PageData[]>('/api/get', () =>
+  return useQuery<Page[]>('/api/get', () =>
     fetch('/api/get').then((response) => response.json())
   )
 }
@@ -13,7 +13,7 @@ export const usePageDataMutateRemove = () => {
   const queryClient = useQueryClient()
   return useMutation(
     (id: string) => {
-      return fetch('/api/remove', {
+      return fetch('/api/del', {
         method: 'DELETE',
         body: JSON.stringify({ id }),
       })
