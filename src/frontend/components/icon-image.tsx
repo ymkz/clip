@@ -1,6 +1,6 @@
-import { SVGProps } from 'react'
+import React from 'react'
 
-export function IconImage(props: SVGProps<SVGSVGElement>) {
+export function IconImage(props: React.SVGProps<SVGSVGElement>): JSX.Element {
   return (
     <svg
       focusable="false"

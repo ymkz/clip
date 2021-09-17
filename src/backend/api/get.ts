@@ -1,7 +1,7 @@
-import { ErrorCode } from '~/api/helper/error'
-import { getAll } from '~/api/helper/kv'
-import { internalWorkerError, okJson } from '~/api/helper/response'
-import { Page } from '~/types/page'
+import { ErrorCode } from '~/backend/helper/error'
+import { getAll } from '~/backend/helper/kv'
+import { internalWorkerError, okJson } from '~/backend/helper/response'
+import { Page } from '~/types'
 
 export const get = async (): Promise<Response> => {
   let result: Page[]

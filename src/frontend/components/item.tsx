@@ -1,17 +1,18 @@
-import { IconRemove } from '~/components/icon/remove'
-import { ItemImage } from '~/components/item-image'
-import { usePageDataMutateRemove } from '~/hooks/page'
-import { Page } from '~/types/page'
+import React from 'react'
+import { IconDelete } from '~/frontend/components/icon-delete'
+import { Image } from '~/frontend/components/image'
+import { usePageDelete } from '~/frontend/hooks/use-page'
+import { Page } from '~/types'
 
 type Props = {
   page: Page
 }
 
-export const Item = ({ page }: Props) => {
-  const { mutate: removePageData } = usePageDataMutateRemove()
+export const Item = ({ page }: Props): JSX.Element => {
+  const { mutate: deletePage } = usePageDelete()
 
-  const remove = () => {
-    removePageData(page.id)
+  const handleClick = () => {
+    deletePage(page.id)
   }
 
   return (
@@ -19,11 +20,11 @@ export const Item = ({ page }: Props) => {
       <div className="head">
         <div className="title">{page.title}</div>
         <div className="remove">
-          <IconRemove width={16} height={16} onClick={remove} />
+          <IconDelete width={16} height={16} onClick={handleClick} />
         </div>
       </div>
       <div className="body">
-        <ItemImage image={page.imageUrl} />
+        <Image image={page.imageUrl} />
         <div className="detail">
           <div className="description">{page.description}</div>
           <div className="url">{page.url}</div>

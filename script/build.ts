@@ -1,22 +1,29 @@
-import esbuildTsconfigPaths from '@esbuild-plugins/tsconfig-paths'
-import viteReactRefresh from '@vitejs/plugin-react-refresh'
-import { build as buildByEsbuild } from 'esbuild'
-import { build as buildByVite } from 'vite'
-import viteReactJsx from 'vite-react-jsx'
-import viteTsconfigPaths from 'vite-tsconfig-paths'
+import html from '@chialab/esbuild-plugin-html'
+import paths from '@esbuild-plugins/tsconfig-paths'
+import del from 'del'
+import esbuild from 'esbuild'
+import fs from 'fs/promises'
 
 const run = async () => {
+  await del(['./dist-backend', './dist-frontend'])
   await Promise.all([
-    buildByEsbuild({
-      plugins: [esbuildTsconfigPaths({})],
+    esbuild.build({
+      plugins: [paths({})],
       bundle: true,
-      outdir: './dist-api',
-      entryPoints: ['./src/api/index.ts'],
+      outdir: './dist-backend',
+      entryPoints: ['./src/backend/index.ts'],
     }),
-    buildByVite({
-      plugins: [viteTsconfigPaths(), viteReactJsx(), viteReactRefresh()],
-      build: { outDir: './dist-view' },
-      clearScreen: false,
+    esbuild.build({
+      plugins: [paths({}), html({})],
+      bundle: true,
+      outdir: './dist-frontend',
+      entryPoints: ['./src/frontend/index.html'],
+    }),
+  ])
+  await Promise.all([
+    fs.cp('./src/frontend/robots.txt', './dist-frontend/robots.txt'),
+    fs.cp('./src/frontend/assets', './dist-frontend/assets', {
+      recursive: true,
     }),
   ])
 }

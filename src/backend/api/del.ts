@@ -1,8 +1,8 @@
 import { Request } from 'itty-router'
-import { ErrorCode } from '~/api/helper/error'
-import { removeImage } from '~/api/helper/image'
-import { removeOne } from '~/api/helper/kv'
-import { badRequest, internalWorkerError, ok } from '~/api/helper/response'
+import { ErrorCode } from '~/backend/helper/error'
+import { removeImage } from '~/backend/helper/image'
+import { removeOne } from '~/backend/helper/kv'
+import { badRequest, internalWorkerError, ok } from '~/backend/helper/response'
 
 type Body = {
   id: string

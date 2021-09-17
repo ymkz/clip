@@ -1,5 +1,5 @@
 import { HTMLElement, parse } from 'node-html-parser'
-import { Page } from '~/types/page'
+import { Page } from '~/types'
 
 /**
  * HTMLRewriterで実装をリプレースしたい

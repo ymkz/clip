@@ -1,11 +1,12 @@
-import { IconImage } from '~/components/icon/image'
-import { Page } from '~/types/page'
+import React from 'react'
+import { IconImage } from '~/frontend/components/icon-image'
+import { Page } from '~/types'
 
 type Props = {
   image: Page['imageUrl']
 }
 
-export const ItemImage = ({ image }: Props) => {
+export const Image = ({ image }: Props): JSX.Element => {
   if (image) {
     return <img className="image" loading="lazy" src={image} />
   }

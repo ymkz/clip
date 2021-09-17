@@ -1,10 +1,10 @@
 import { Request } from 'itty-router'
-import { ErrorCode } from '~/api/helper/error'
-import { uploadImage } from '~/api/helper/image'
-import { addOne, updateOneOfImageUrl } from '~/api/helper/kv'
-import { scrapePageData } from '~/api/helper/parse'
-import { badRequest, internalWorkerError, ok } from '~/api/helper/response'
-import { Page } from '~/types/page'
+import { ErrorCode } from '~/backend/helper/error'
+import { uploadImage } from '~/backend/helper/image'
+import { addOne, updateOneOfImageUrl } from '~/backend/helper/kv'
+import { scrapePageData } from '~/backend/helper/parse'
+import { badRequest, internalWorkerError, ok } from '~/backend/helper/response'
+import { Page } from '~/types'
 
 type Body = {
   url: string

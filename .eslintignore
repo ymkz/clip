@@ -1,4 +1,4 @@
-dist-api
-dist-view
+dist-backend
+dist-frontend
 node_modules
 package-lock.json

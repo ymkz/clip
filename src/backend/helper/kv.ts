@@ -1,4 +1,4 @@
-import { Page } from '~/types/page'
+import { Page } from '~/types'
 
 export const getAll = async (): Promise<Page[]> => {
   const data = (await DB.get('data')) ?? '[]'

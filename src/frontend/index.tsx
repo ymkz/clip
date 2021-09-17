@@ -1,19 +1,18 @@
-import { StrictMode } from 'react'
-import { render } from 'react-dom'
+import React from 'react'
+import ReactDOM from 'react-dom'
 import { QueryClient, QueryClientProvider } from 'react-query'
-import { IndexPage } from '~/pages/index'
-import './styles/global.css'
+import { IndexPage } from '~/frontend/pages'
 
 const queryClient = new QueryClient()
 
 const App = () => {
   return (
-    <StrictMode>
+    <React.StrictMode>
       <QueryClientProvider client={queryClient}>
         <IndexPage />
       </QueryClientProvider>
-    </StrictMode>
+    </React.StrictMode>
   )
 }
 
-render(<App />, document.querySelector('#root'))
+ReactDOM.render(<App />, document.querySelector('#root'))

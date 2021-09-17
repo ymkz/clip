@@ -4,7 +4,6 @@ account_id = "b5844f07873a66bd807cbee5aaa57206"
 vars = { ENVIRONMENT = "development" }
 kv_namespaces = [{ binding = "DB", id = "", preview_id = "" }]
 
-
 [env.production]
 name = "clip"
 route = "clip.ymkz.app/*"
@@ -13,10 +12,12 @@ vars = { ENVIRONMENT = "production" }
 kv_namespaces = [{ binding = "DB", id = "5e15a12c6dd04a59a97e2ae440409b34" }]
 
 [site]
-bucket = "./dist-view"
-entry-point = "."
+bucket = "./dist-frontend"
+entry-point = "./dist-backend"
 
 [build]
 command = "npm run build"
 [build.upload]
 format = "service-worker"
+dir = "./dist-backend"
+main = "./index.js"

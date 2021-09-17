@@ -1,6 +1,6 @@
-import { SVGProps } from 'react'
+import React from 'react'
 
-export function IconRemove(props: SVGProps<SVGSVGElement>) {
+export function IconDelete(props: React.SVGProps<SVGSVGElement>): JSX.Element {
   return (
     <svg width="1em" height="1em" viewBox="0 0 256 256" {...props}>
       <path
