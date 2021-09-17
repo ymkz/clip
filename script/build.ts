@@ -1,11 +1,10 @@
 import html from '@chialab/esbuild-plugin-html'
 import paths from '@esbuild-plugins/tsconfig-paths'
-import del from 'del'
 import esbuild from 'esbuild'
-import fs from 'fs/promises'
+import fs from 'fs-extra'
 
 const run = async () => {
-  await del(['./dist-backend', './dist-frontend'])
+  await Promise.all([fs.remove('./dist-backend'), fs.remove('./dist-frontend')])
   await Promise.all([
     esbuild.build({
       plugins: [paths({})],
@@ -21,10 +20,8 @@ const run = async () => {
     }),
   ])
   await Promise.all([
-    fs.cp('./src/frontend/robots.txt', './dist-frontend/robots.txt'),
-    fs.cp('./src/frontend/assets', './dist-frontend/assets', {
-      recursive: true,
-    }),
+    fs.copy('./src/frontend/robots.txt', './dist-frontend/robots.txt'),
+    fs.copy('./src/frontend/assets', './dist-frontend/assets'),
   ])
 }
 
