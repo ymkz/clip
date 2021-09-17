@@ -2,6 +2,7 @@
   "name": "clip",
   "version": "0.0.0",
   "private": true,
+  "main": "dist-backend/index.js",
   "scripts": {
     "build": "esno script/build.ts",
     "dev": "esno script/dev.ts",

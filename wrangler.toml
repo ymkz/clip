@@ -19,5 +19,3 @@ entry-point = "./dist-backend"
 command = "npm run build"
 [build.upload]
 format = "service-worker"
-dir = "dist-backend"
-main = "./index.js"
