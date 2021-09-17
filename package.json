@@ -23,7 +23,6 @@
     "react-query": "3.23.2"
   },
   "devDependencies": {
-    "@arkweid/lefthook": "0.7.6",
     "@chialab/esbuild-plugin-html": "0.11.35",
     "@cloudflare/workers-types": "2.2.2",
     "@esbuild-plugins/tsconfig-paths": "0.0.4",
