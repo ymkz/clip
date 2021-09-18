@@ -14,7 +14,9 @@
     "lint:eslint": "eslint .",
     "lint:prettier": "prettier --check .",
     "lint:tsc": "tsc --noEmit",
-    "reset": "rm -rf dist-backend dist-frontend node_modules package-lock.json",
+    "reset": "npm run reset:dist && npm run reset:node",
+    "reset:dist": "rm -rf dist-backend dist-extension dist-frontend",
+    "reset:node": "rm -rf node_modules package-lock.json",
     "zip": "zip -r extension.zip dist-extension"
   },
   "dependencies": {
