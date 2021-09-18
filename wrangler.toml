@@ -13,8 +13,8 @@ vars = { ENVIRONMENT = "production" }
 kv_namespaces = [{ binding = "DB", id = "5e15a12c6dd04a59a97e2ae440409b34" }]
 
 [site]
-bucket = "./dist-frontend"
-entry-point = "./dist-backend"
+bucket = "dist-frontend"
+entry-point = "."
 
 [build]
 command = "npm run build"

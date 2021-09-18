@@ -8,6 +8,7 @@ permissions:
 env:
   CI: true
   TZ: Asia/Tokyo
+  NODE_ENV: production
 jobs:
   lint:
     runs-on: ubuntu-latest
