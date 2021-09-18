@@ -1,18 +1,30 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import { StrictMode } from 'react'
+import { render } from 'react-dom'
 import { QueryClient, QueryClientProvider } from 'react-query'
-import { IndexPage } from '~/frontend/pages'
+import { Item } from '~/frontend/components/item'
+import { usePageGet } from '~/frontend/hooks/use-page'
 
 const queryClient = new QueryClient()
 
-const App = () => {
+const IndexPage = (): JSX.Element => {
+  const { data: pageList } = usePageGet()
   return (
-    <React.StrictMode>
-      <QueryClientProvider client={queryClient}>
-        <IndexPage />
-      </QueryClientProvider>
-    </React.StrictMode>
+    <ul className="list">
+      {pageList?.map((page) => (
+        <Item key={page.id} page={page} />
+      ))}
+    </ul>
   )
 }
 
-ReactDOM.render(<App />, document.querySelector('#root'))
+const App = () => {
+  return (
+    <StrictMode>
+      <QueryClientProvider client={queryClient}>
+        <IndexPage />
+      </QueryClientProvider>
+    </StrictMode>
+  )
+}
+
+render(<App />, document.querySelector('#root'))

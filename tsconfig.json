@@ -5,7 +5,7 @@
     "skipLibCheck": true,
     "noImplicitAny": true,
     "esModuleInterop": true,
-    "jsx": "react",
+    "jsx": "react-jsx",
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "node",

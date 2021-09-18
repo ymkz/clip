@@ -1,27 +1,30 @@
-import html from '@chialab/esbuild-plugin-html'
-import paths from '@esbuild-plugins/tsconfig-paths'
-import esbuild from 'esbuild'
-import fs from 'fs-extra'
+import vite from 'vite'
+import reactJsx from 'vite-react-jsx'
+import tsconfigPaths from 'vite-tsconfig-paths'
 
 const run = async () => {
-  await Promise.all([fs.remove('dist-backend'), fs.remove('dist-frontend')])
+  const root = process.cwd()
   await Promise.all([
-    esbuild.build({
-      plugins: [paths({})],
-      bundle: true,
-      outdir: 'dist-backend',
-      entryPoints: ['src/backend/index.ts'],
+    vite.build({
+      plugins: [tsconfigPaths({ root })],
+      root: `${root}/src/backend`,
+      clearScreen: false,
+      build: {
+        emptyOutDir: false,
+        outDir: `${root}/dist-backend`,
+        rollupOptions: { input: `${root}/src/backend/index.ts` },
+      },
     }),
-    esbuild.build({
-      plugins: [paths({}), html({})],
-      bundle: true,
-      outdir: 'dist-frontend',
-      entryPoints: ['src/frontend/index.html'],
+    vite.build({
+      plugins: [tsconfigPaths({ root }), reactJsx()],
+      root: `${root}/src/frontend`,
+      clearScreen: false,
+      build: {
+        emptyOutDir: false,
+        outDir: `${root}/dist-frontend`,
+        rollupOptions: { input: `${root}/src/frontend/index.html` },
+      },
     }),
-  ])
-  await Promise.all([
-    fs.copy('src/frontend/robots.txt', 'dist-frontend/robots.txt'),
-    fs.copy('src/frontend/assets', 'dist-frontend/assets'),
   ])
 }
 
