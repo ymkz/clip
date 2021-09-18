@@ -29,6 +29,8 @@ const run = async () => {
       clearScreen: false,
       build: {
         emptyOutDir: false,
+        manifest: true,
+        assetsInlineLimit: 0,
         outDir: `${root}/dist-frontend`,
         rollupOptions: {
           input: `${root}/src/frontend/index.html`,
