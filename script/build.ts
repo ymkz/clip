@@ -12,7 +12,15 @@ const run = async () => {
       build: {
         emptyOutDir: false,
         outDir: `${root}/dist-backend`,
-        rollupOptions: { input: `${root}/src/backend/index.ts` },
+        rollupOptions: {
+          input: `${root}/src/backend/index.ts`,
+          output: {
+            format: 'iife',
+            entryFileNames: `[name].js`,
+            chunkFileNames: `[name].js`,
+            assetFileNames: `[name].[ext]`,
+          },
+        },
       },
     }),
     vite.build({
@@ -22,7 +30,9 @@ const run = async () => {
       build: {
         emptyOutDir: false,
         outDir: `${root}/dist-frontend`,
-        rollupOptions: { input: `${root}/src/frontend/index.html` },
+        rollupOptions: {
+          input: `${root}/src/frontend/index.html`,
+        },
       },
     }),
   ])
