@@ -3,7 +3,7 @@
   "description": "Web Clipper for Clip",
   "version": "0.1.1",
   "manifest_version": 3,
-  "permissions": ["activeTab", "notifications", "storage"],
+  "permissions": ["activeTab", "notifications"],
   "host_permissions": ["https://clip.ymkz.app/*"],
   "action": {
     "default_title": "Save to Clip",
