@@ -33,3 +33,4 @@ jobs:
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
           environment: 'production'
+          wranglerVersion: '1.13.0'
