@@ -1,3 +1,5 @@
 dist-backend
+dist-extension
 dist-frontend
+extension.zip
 node_modules

@@ -1,0 +1,20 @@
+{
+  "name": "Clip Web Clipper",
+  "description": "Web Clipper for Clip",
+  "version": "0.1.1",
+  "manifest_version": 3,
+  "permissions": ["activeTab", "notifications", "storage"],
+  "host_permissions": ["https://clip.ymkz.app/*"],
+  "action": {
+    "default_title": "Save to Clip",
+    "default_icon": {
+      "128": "assets/icon_x128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.ts"
+  },
+  "icons": {
+    "128": "assets/icon_x128.png"
+  }
+}

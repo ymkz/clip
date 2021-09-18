@@ -5,6 +5,7 @@
   "main": "dist-backend/index.js",
   "scripts": {
     "build": "esno script/build.ts",
+    "build:extension": "esno script/build-extension.ts",
     "dev": "esno script/dev.ts",
     "fmt": "npm run fmt:prettier && npm run fmt:eslint",
     "fmt:eslint": "eslint --fix .",
@@ -13,7 +14,8 @@
     "lint:eslint": "eslint .",
     "lint:prettier": "prettier --check .",
     "lint:tsc": "tsc --noEmit",
-    "reset": "rm -rf dist-backend dist-frontend node_modules package-lock.json"
+    "reset": "rm -rf dist-backend dist-frontend node_modules package-lock.json",
+    "zip": "zip -r extension.zip dist-extension"
   },
   "dependencies": {
     "@cloudflare/kv-asset-handler": "0.1.3",
@@ -25,6 +27,7 @@
   },
   "devDependencies": {
     "@cloudflare/workers-types": "2.2.2",
+    "@types/chrome": "0.0.157",
     "@types/node": "16.9.2",
     "@types/react": "17.0.21",
     "@types/react-dom": "17.0.9",
@@ -38,6 +41,7 @@
     "prettier-plugin-pkg": "0.10.0",
     "typescript": "4.4.3",
     "vite": "2.5.8",
+    "vite-plugin-chrome-extension": "0.0.7",
     "vite-react-jsx": "1.1.2",
     "vite-tsconfig-paths": "3.3.14"
   },

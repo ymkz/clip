@@ -1,4 +1,5 @@
 dist-backend
+dist-extension
 dist-frontend
 node_modules
 package-lock.json
