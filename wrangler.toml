@@ -1,5 +1,6 @@
 name = "clip-local"
 type = "javascript"
+compatibility_date = "2021-09-18"
 account_id = "b5844f07873a66bd807cbee5aaa57206"
 vars = { ENVIRONMENT = "development" }
 kv_namespaces = [{ binding = "DB", id = "", preview_id = "" }]
