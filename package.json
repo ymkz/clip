@@ -59,5 +59,9 @@
   "prettier": {
     "semi": false,
     "singleQuote": true
+  },
+  "volta": {
+    "node": "16.11.0",
+    "npm": "8.0.0"
   }
 }
