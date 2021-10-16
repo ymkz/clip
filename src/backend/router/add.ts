@@ -1,8 +1,8 @@
 import { Request } from 'itty-router'
 import { ErrorCode } from '~/backend/helper/error'
+import { fetchPage } from '~/backend/helper/fetch'
 import { uploadImage } from '~/backend/helper/image'
 import { addOne, updateOneOfImageUrl } from '~/backend/helper/kv'
-import { fetchPage } from '~/backend/helper/parse'
 
 type Body = {
   url: string
