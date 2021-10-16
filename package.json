@@ -4,9 +4,9 @@
   "private": true,
   "main": "dist-backend/index.js",
   "scripts": {
-    "build": "tsno script/build.ts",
-    "build:extension": "tsno script/build-extension.ts",
-    "dev": "tsno script/dev.ts",
+    "build": "tsno bin/build.ts",
+    "build:extension": "tsno bin/build-extension.ts",
+    "dev": "tsno bin/dev.ts",
     "fmt": "npm run fmt:prettier && npm run fmt:eslint",
     "fmt:eslint": "eslint --fix .",
     "fmt:prettier": "prettier --write .",
