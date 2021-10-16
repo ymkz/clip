@@ -1,5 +1,5 @@
 import { encode, toHEX } from '~/backend/helper/_internal'
-import { Page } from '~/types'
+import { Page } from '~/types/page'
 
 export async function uploadImage(page: Page): Promise<string> {
   const endpoint = 'https://api.cloudinary.com/v1_1/ymkz/image/upload'

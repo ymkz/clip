@@ -2,7 +2,7 @@ import React from 'react'
 import { IconDelete } from '~/frontend/components/icon-delete'
 import { Image } from '~/frontend/components/image'
 import { usePageDelete } from '~/frontend/hooks/use-page'
-import { Page } from '~/types'
+import { Page } from '~/types/page'
 
 type Props = {
   page: Page

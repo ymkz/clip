@@ -1,7 +1,6 @@
 import { getAssetFromKV, NotFoundError } from '@cloudflare/kv-asset-handler'
 import { Request } from 'itty-router'
 import { ErrorCode } from '~/backend/helper/error'
-import { internalWorkerError, notFound } from '~/backend/helper/response'
 
 export const render = async (
   _: Request,
@@ -11,9 +10,9 @@ export const render = async (
     return await getAssetFromKV(event)
   } catch (e) {
     if (e instanceof NotFoundError) {
-      return notFound()
+      throw ErrorCode.KV_ASSET_NOT_FOUND_ERROR
     } else {
-      return internalWorkerError(ErrorCode.E_GET_ASSET_FROM_KV)
+      throw ErrorCode.UNKNOWN_ERROR
     }
   }
 }

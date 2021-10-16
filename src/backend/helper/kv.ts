@@ -1,13 +1,13 @@
-import { Page } from '~/types'
+import { Page } from '~/types/page'
 
 export const getAll = async (): Promise<Page[]> => {
-  const data = (await DB.get('data')) ?? '[]'
-  return JSON.parse(data)
+  const data = await DB.get<Page[]>('data', 'json')
+  return data ?? []
 }
 
 export const addOne = async (data: Page): Promise<void> => {
   const prev = await getAll()
-  const next = [...prev, data]
+  const next = [data, ...prev]
   await DB.put('data', JSON.stringify(next))
 }
 

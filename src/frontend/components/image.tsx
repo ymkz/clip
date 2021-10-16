@@ -1,6 +1,6 @@
 import React from 'react'
 import { IconImage } from '~/frontend/components/icon-image'
-import { Page } from '~/types'
+import { Page } from '~/types/page'
 
 type Props = {
   image: Page['imageUrl']

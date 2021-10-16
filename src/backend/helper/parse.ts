@@ -1,11 +1,11 @@
 import { HTMLElement, parse } from 'node-html-parser'
-import { Page } from '~/types'
+import { Page } from '~/types/page'
 
 /**
  * HTMLRewriterで実装をリプレースしたい
  * @see https://developers.cloudflare.com/workers/runtime-apis/html-rewriter
  */
-export async function scrapePageData(url: string): Promise<Page> {
+export async function fetchPage(url: string): Promise<Page> {
   const UA =
     'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36'
   const id = Date.now().toString()
