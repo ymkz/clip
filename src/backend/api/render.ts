@@ -3,7 +3,7 @@ import { Request } from 'itty-router'
 import { ErrorCode } from '~/backend/helper/error'
 import { internalWorkerError, notFound } from '~/backend/helper/response'
 
-export const index = async (
+export const render = async (
   req: Request,
   event: FetchEvent
 ): Promise<Response> => {
