@@ -4,7 +4,7 @@ import { ErrorCode } from '~/backend/helper/error'
 import { internalWorkerError, notFound } from '~/backend/helper/response'
 
 export const render = async (
-  req: Request,
+  _: Request,
   event: FetchEvent
 ): Promise<Response> => {
   try {
