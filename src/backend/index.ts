@@ -15,6 +15,6 @@ router
   .get('*', render)
   .all('*', () => new Response('Not Found', { status: 404 }))
 
-addEventListener('fetch', (event) => {
+addEventListener('fetch', (event: FetchEvent) => {
   event.respondWith(router.handle(event.request, event).catch(errorHandler))
 })

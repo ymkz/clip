@@ -3,7 +3,7 @@ import { Page } from '~/types/page'
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const usePageGet = () => {
-  return useQuery<Page[]>('/api/get', () =>
+  return useQuery<unknown, unknown, Page[], string>('/api/get', () =>
     fetch('/api/get').then((response) => response.json())
   )
 }
