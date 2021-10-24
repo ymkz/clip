@@ -43,13 +43,13 @@ ul {
 }
 
 .list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
   width: 100%;
   max-width: 640px;
   margin: 0 auto;
   padding: 24px 16px 64px;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
 }
 
 .image {
@@ -70,17 +70,17 @@ ul {
 }
 
 .item {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 4px;
   cursor: alias;
-  position: relative;
 }
 
 .head {
   display: flex;
-  justify-content: space-between;
   gap: 16px;
+  justify-content: space-between;
 }
 
 .title {
@@ -92,10 +92,10 @@ ul {
 }
 
 .remove {
+  z-index: 1;
   width: 16px;
   height: 16px;
   cursor: pointer;
-  z-index: 1;
 }
 
 .body {
@@ -104,11 +104,11 @@ ul {
 }
 
 .detail {
-  flex-grow: 1;
-  padding: 4px 0;
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
   justify-content: space-between;
+  padding: 4px 0;
 }
 
 .description {
@@ -127,16 +127,16 @@ ul {
   color: var(--color-base-300);
   font-size: 10px;
   line-height: 1.2;
+  text-align: right;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
-  text-align: right;
 }
 
 .anchor {
   position: absolute;
   top: 0;
   left: 0;
-  height: 100%;
   width: 100%;
+  height: 100%;
   cursor: alias;
 }
