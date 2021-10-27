@@ -15,6 +15,7 @@ router
   .get('*', render)
   .all('*', () => new Response('Not Found', { status: 404 }))
 
-addEventListener('fetch', (event: FetchEvent) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+addEventListener('fetch', (event: any) => {
   event.respondWith(router.handle(event.request, event).catch(errorHandler))
 })

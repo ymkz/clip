@@ -8,7 +8,7 @@
     "module": "ESNext",
     "moduleResolution": "node",
     "lib": ["ESNext", "DOM"],
-    "types": ["@cloudflare/workers-types", "@types/chrome"],
+    "types": ["@types/chrome"],
     "baseUrl": ".",
     "paths": {
       "~/*": ["src/*"]

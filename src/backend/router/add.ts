@@ -1,4 +1,5 @@
 import { Request } from 'itty-router'
+import { FetchEvent } from 'miniflare'
 import { ErrorCode } from '~/backend/helper/error'
 import { fetchPage } from '~/backend/helper/fetch'
 import { uploadImage } from '~/backend/helper/image'
