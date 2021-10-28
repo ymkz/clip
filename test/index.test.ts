@@ -1,9 +1,11 @@
 import { Miniflare } from 'miniflare'
 import { test } from 'uvu'
 import * as assert from 'uvu/assert'
-import { Page } from '../types/page'
+import { Page } from '~/types/page'
 
 const miniflare = new Miniflare({ scriptPath: 'dist-backend/index.js' })
+
+let testedId: string
 
 test('/api/get response `[]` with 200', async () => {
   const response = await miniflare.dispatchFetch(
@@ -27,8 +29,6 @@ test('/api/add response `OK` with 200', async () => {
   assert.is(text, 'OK')
 })
 
-let testedId: string
-
 test('/api/get response `[{"id":"",...}]` with 200', async () => {
   const response = await miniflare.dispatchFetch(
     'http://localhost:3000/api/get'
@@ -48,6 +48,15 @@ test('/api/del response `OK` with 200', async () => {
   const text = await response.text()
   assert.is(response.status, 200)
   assert.is(text, 'OK')
+})
+
+test('/api/get response `[]` with 200', async () => {
+  const response = await miniflare.dispatchFetch(
+    'http://localhost:3000/api/get'
+  )
+  const text = await response.text()
+  assert.is(response.status, 200)
+  assert.is(text, '[]')
 })
 
 test.after(async () => {

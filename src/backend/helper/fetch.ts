@@ -1,4 +1,4 @@
-import { HTMLElement, parse } from 'node-html-parser'
+import parse, { HTMLElement } from 'node-html-parser'
 import { Page } from '~/types/page'
 
 /**

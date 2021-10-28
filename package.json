@@ -16,7 +16,7 @@
     "lint:tsc": "tsc --noEmit",
     "reset:hard": "rm -rf dist* node_modules package-lock.json",
     "reset:soft": "rm -rf dist* node_modules",
-    "test": "esno src/backend/index.test.ts",
+    "test": "esno test/index.test.ts",
     "zip": "zip -r extension.zip dist-extension"
   },
   "dependencies": {
