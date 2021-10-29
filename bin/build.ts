@@ -1,11 +1,11 @@
-import { build } from 'vite'
+import vite from 'vite'
 import react from 'vite-preset-react'
 import tsconfigPaths from 'vite-tsconfig-paths'
 
 const run = async () => {
   const root = process.cwd()
   await Promise.all([
-    build({
+    vite.build({
       plugins: [tsconfigPaths({ root })],
       root: `${root}/src/backend`,
       clearScreen: false,
@@ -23,7 +23,7 @@ const run = async () => {
         },
       },
     }),
-    build({
+    vite.build({
       plugins: [tsconfigPaths({ root }), react({ removeDevtoolsInProd: true })],
       root: `${root}/src/frontend`,
       clearScreen: false,
