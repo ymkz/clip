@@ -62,7 +62,7 @@
     "singleQuote": true
   },
   "volta": {
-    "node": "16.11.0",
+    "node": "16.13.0",
     "npm": "8.1.1"
   }
 }
