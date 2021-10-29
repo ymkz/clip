@@ -1,5 +1,5 @@
-import react from '@vitejs/plugin-react'
 import { build } from 'vite'
+import react from 'vite-preset-react'
 import tsconfigPaths from 'vite-tsconfig-paths'
 
 const run = async () => {
@@ -24,7 +24,7 @@ const run = async () => {
       },
     }),
     build({
-      plugins: [tsconfigPaths({ root }), react()],
+      plugins: [tsconfigPaths({ root }), react({ removeDevtoolsInProd: true })],
       root: `${root}/src/frontend`,
       clearScreen: false,
       build: {

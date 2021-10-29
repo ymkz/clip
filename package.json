@@ -34,7 +34,6 @@
     "@types/react-dom": "17.0.10",
     "@typescript-eslint/eslint-plugin": "5.2.0",
     "@typescript-eslint/parser": "5.2.0",
-    "@vitejs/plugin-react": "1.0.6",
     "eslint": "8.1.0",
     "eslint-config-prettier": "8.3.0",
     "esno": "0.10.1",
@@ -46,6 +45,7 @@
     "uvu": "0.5.2",
     "vite": "2.6.13",
     "vite-plugin-chrome-extension": "0.0.7",
+    "vite-preset-react": "2.0.0",
     "vite-tsconfig-paths": "3.3.17"
   },
   "eslintConfig": {
