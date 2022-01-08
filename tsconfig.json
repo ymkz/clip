@@ -10,7 +10,6 @@
     "allowJs": true,
     "incremental": true,
     "skipLibCheck": true,
-    "noImplicitAny": true,
     "isolatedModules": true,
     "esModuleInterop": true,
     "resolveJsonModule": true,
