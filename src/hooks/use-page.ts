@@ -1,24 +1,19 @@
-import { useMutation, useQuery, useQueryClient } from "react-query"
+import useSWR, { useSWRConfig } from "swr"
 import { Page } from "~/types/page"
 
 export const usePageGet = () => {
-  return useQuery<unknown, unknown, Page[], string>("/api/get", () =>
-    fetch("/api/get").then((response) => response.json())
-  )
+  const { data: pageList } = useSWR<Page[]>("/api/get")
+
+  return { pageList }
 }
 
 export const usePageDelete = () => {
-  const queryClient = useQueryClient()
+  const { mutate } = useSWRConfig()
 
-  return useMutation(
-    (id: string) => {
-      return fetch("/api/del", {
-        method: "DELETE",
-        body: JSON.stringify({ id }),
-      })
-    },
-    {
-      onSuccess: () => queryClient.invalidateQueries("/api/get"),
-    }
-  )
+  const deletePage = async (id: string) => {
+    await fetch("/api/del", { method: "DELETE", body: JSON.stringify({ id }) })
+    await mutate("/api/get")
+  }
+
+  return { deletePage }
 }

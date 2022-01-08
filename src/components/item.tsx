@@ -1,4 +1,3 @@
-import React from "react"
 import { IconDelete } from "~/components/icon-delete"
 import { Image } from "~/components/image"
 import { usePageDelete } from "~/hooks/use-page"
@@ -9,7 +8,7 @@ type Props = {
 }
 
 export const Item = ({ page }: Props): JSX.Element => {
-  const { mutate: deletePage } = usePageDelete()
+  const { deletePage } = usePageDelete()
 
   const handleClick = () => {
     deletePage(page.id)

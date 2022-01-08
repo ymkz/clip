@@ -1,14 +1,13 @@
 import { StrictMode } from "react"
 import { render } from "react-dom"
-import { QueryClient, QueryClientProvider } from "react-query"
+import { SWRConfig } from "swr"
 import { Item } from "~/components/item"
 import { usePageGet } from "~/hooks/use-page"
 import "~/style.css"
 
-const queryClient = new QueryClient()
-
 const App = () => {
-  const { data: pageList } = usePageGet()
+  const { pageList } = usePageGet()
+
   return (
     <ul className="list">
       {pageList?.map((page) => (
@@ -20,9 +19,14 @@ const App = () => {
 
 render(
   <StrictMode>
-    <QueryClientProvider client={queryClient}>
+    <SWRConfig
+      value={{
+        shouldRetryOnError: false,
+        fetcher: (req) => fetch(req).then((res) => res.json()),
+      }}
+    >
       <App />
-    </QueryClientProvider>
+    </SWRConfig>
   </StrictMode>,
   document.querySelector("#root")
 )
