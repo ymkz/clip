@@ -25,8 +25,10 @@ export const Item = ({ page }: Props): JSX.Element => {
       <div className="grid grid-cols-[8rem,1fr] gap-x-2">
         <Image image={page.imageUrl} />
         <div className="flex flex-col flex-grow gap-y-1 py-1">
-          <div className="text-xs line-clamp-1 text-gray-500">{page.url}</div>
-          <div className="text-sm line-clamp-3 text-gray-700 leading-tight">
+          <div className="text-xs line-clamp-1 text-gray-500 break-all">
+            {page.url}
+          </div>
+          <div className="text-sm line-clamp-3 text-gray-700 break-all leading-tight">
             {page.description}
           </div>
         </div>
