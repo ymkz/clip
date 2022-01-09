@@ -1,15 +1,15 @@
 import { StrictMode } from "react"
 import { render } from "react-dom"
 import { SWRConfig } from "swr"
+import "virtual:windi.css"
 import { Item } from "~/components/item"
-import { usePageGet } from "~/hooks/use-page"
-import "~/style.css"
+import { usePageGet } from "~/helpers/hook"
 
 const App = () => {
   const { pageList } = usePageGet()
 
   return (
-    <ul className="list">
+    <ul className="container mx-auto max-w-3xl flex flex-col gap-y-4 p-4">
       {pageList?.map((page) => (
         <Item key={page.id} page={page} />
       ))}
