@@ -21,11 +21,11 @@ export const Item = ({ page }: Props): JSX.Element => {
         rel="noreferrer"
         className="absolute top-0 left-0 w-full h-full"
       />
-      <div className="flex flex-col gap-y-1 flex-grow">
+      <div className="flex flex-col gap-y-2 flex-grow">
         <div className="sm:text-lg line-clamp-3 break-all text-gray-900 leading-tight font-bold">
           {page.title}
         </div>
-        <div className="text-xs line-clamp-1 break-all text-gray-400">
+        <div className="text-xs line-clamp-1 break-all text-gray-400 leading-none">
           {page.url}
         </div>
         <div className="text-sm line-clamp-3 break-all text-gray-600 leading-snug">
