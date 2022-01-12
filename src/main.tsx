@@ -9,7 +9,7 @@ const App = () => {
   const { pageList } = usePageGet()
 
   return (
-    <ul className="container mx-auto max-w-3xl flex flex-col gap-y-4 p-4">
+    <ul className="container mx-auto max-w-3xl flex flex-col gap-y-6 p-4">
       {pageList?.map((page) => (
         <Item key={page.id} page={page} />
       ))}

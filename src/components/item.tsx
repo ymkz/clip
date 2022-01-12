@@ -1,5 +1,4 @@
-import { IconDelete } from "~/components/icon-delete"
-import { Image } from "~/components/image"
+import { IconImage } from "~/components/icon-image"
 import { usePageDelete } from "~/helpers/hook"
 import { Page } from "~/types/page"
 
@@ -15,30 +14,40 @@ export const Item = ({ page }: Props): JSX.Element => {
   }
 
   return (
-    <li className="relative flex flex-col gap-y-1">
-      <div className="flex items-center justify-between">
-        <div className="text-lg line-clamp-2 leading-tight">{page.title}</div>
-        <div className="cursor-pointer w-4 h-4 z-10">
-          <IconDelete width={16} height={16} onClick={handleClick} />
-        </div>
-      </div>
-      <div className="grid grid-cols-[8rem,1fr] gap-x-2">
-        <Image image={page.imageUrl} />
-        <div className="flex flex-col flex-grow gap-y-1 py-1">
-          <div className="text-xs line-clamp-1 text-gray-500 break-all">
-            {page.url}
-          </div>
-          <div className="text-sm line-clamp-3 text-gray-700 break-all leading-tight">
-            {page.description}
-          </div>
-        </div>
-      </div>
+    <li className="relative flex gap-x-2">
       <a
         href={page.url}
         target="_blank"
         rel="noreferrer"
         className="absolute top-0 left-0 w-full h-full"
       />
+      <div className="flex flex-col gap-y-1 flex-grow">
+        <div className="text-lg line-clamp-3 break-all text-gray-900 leading-tight font-bold">
+          {page.title}
+        </div>
+        <div className="text-xs line-clamp-1 break-all text-gray-400">
+          {page.url}
+        </div>
+        <div className="text-sm line-clamp-3 break-all text-gray-600 leading-snug">
+          {page.description}
+        </div>
+      </div>
+      <div
+        className="flex-shrink-0 w-28 h-20 rounded cursor-pointer z-10"
+        onClick={handleClick}
+      >
+        {page.imageUrl ? (
+          <img
+            className="w-28 h-20 object-cover rounded"
+            loading="lazy"
+            src={page.imageUrl}
+          />
+        ) : (
+          <div className="w-28 h-20 object-cover rounded flex justify-center items-center bg-gray-100 border border-gray-300 text-gray-400">
+            <IconImage width={20} height={20} />
+          </div>
+        )}
+      </div>
     </li>
   )
 }
