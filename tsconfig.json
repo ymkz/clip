@@ -1,13 +1,12 @@
 {
   "compilerOptions": {
-    "jsx": "react-jsx",
-    "target": "ESNext",
+    "jsx": "react",
+    "target": "ES2021",
     "module": "ESNext",
     "moduleResolution": "Node",
     "lib": ["DOM", "ESNext"],
     "noEmit": true,
     "strict": true,
-    "allowJs": true,
     "incremental": true,
     "skipLibCheck": true,
     "isolatedModules": true,
@@ -21,5 +20,6 @@
       "~/*": ["./src/*"]
     }
   },
-  "include": ["src", "functions"]
+  "include": ["env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules", "dist"]
 }

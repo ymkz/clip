@@ -1,0 +1,23 @@
+compatibility_date = "2022-01-01"
+
+vars = { ENVIRONMENT = "local" }
+kv_namespaces = [{ binding = "DB", id = "" }]
+
+[env.production]
+vars = { ENVIRONMENT = "production" }
+
+[site]
+bucket = "./public"
+entry-point = "./dist"
+
+[build]
+command = "npm run build"
+
+[build.upload]
+format = "service-worker"
+main = "./worker.js"
+
+[miniflare]
+host = "localhost"
+port = 3000
+kv_persist = true

@@ -1,13 +1,12 @@
-import parse, { HTMLElement } from "node-html-parser"
-import { Page } from "~/types/page"
+import { HTMLElement, parse } from "node-html-parser"
 
 /**
  * HTMLRewriterで実装をリプレースしたい
  * @see https://developers.cloudflare.com/workers/runtime-apis/html-rewriter
  */
-export async function fetchPage(url: string): Promise<Page> {
+export async function fetchPage(url: string): Promise<ClipItem> {
   const UA =
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36"
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.80 Safari/537.36"
   const id = Date.now().toString()
   const response = await fetch(url, { headers: { "user-agent": UA } })
   const text = await response.text()

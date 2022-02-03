@@ -1,2 +1,4 @@
 dist
 node_modules
+public/main.js
+tsconfig.tsbuildinfo

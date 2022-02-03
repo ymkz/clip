@@ -1,4 +1,4 @@
-import { SVGProps } from "react"
+import React, { SVGProps } from "react"
 
 export function IconImage(props: SVGProps<SVGSVGElement>): JSX.Element {
   return (
