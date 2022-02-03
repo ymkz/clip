@@ -1,6 +1,5 @@
 {
   "private": true,
-  "type": "module",
   "main": "./dist/worker.js",
   "scripts": {
     "build": "node script/build.mjs",
