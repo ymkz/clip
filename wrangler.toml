@@ -1,5 +1,9 @@
 compatibility_date = "2022-01-01"
 
+name = "clip"
+type = "javascript"
+workers_dev = false
+
 vars = { ENVIRONMENT = "local" }
 kv_namespaces = [{ binding = "DB", id = "" }]
 
