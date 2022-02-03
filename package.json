@@ -11,7 +11,7 @@
     "semi": false
   },
   "dependencies": {
-    "hono": "0.3.3",
+    "hono": "0.3.4",
     "node-html-parser": "5.2.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "@cloudflare/workers-types": "3.3.1",
-    "@types/react": "17.0.38",
+    "@types/react": "17.0.39",
     "@types/react-dom": "17.0.11",
     "esbuild": "0.14.18",
     "miniflare": "2.2.0",
