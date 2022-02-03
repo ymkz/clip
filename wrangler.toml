@@ -1,18 +1,19 @@
 compatibility_date = "2022-01-01"
 
-name = "clip"
-type = "javascript"
 workers_dev = false
+type = "javascript"
 
 vars = { ENVIRONMENT = "local" }
 kv_namespaces = [{ binding = "DB", id = "" }]
 
 [env.production]
+name = "clip"
 vars = { ENVIRONMENT = "production" }
+kv_namespaces = [{ binding = "DB", id = "5e15a12c6dd04a59a97e2ae440409b34" }]
 
 [site]
 bucket = "./public"
-entry-point = "./dist"
+entry-point = "."
 
 [build]
 command = "npm run build"
