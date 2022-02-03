@@ -82,7 +82,6 @@ h6 {
 }
 
 .clip-item__title {
-  /* sm:text-lg line-clamp-3 break-all text-gray-900 leading-tight font-bold */
   font-size: 1.125rem;
   line-height: 1.25;
   overflow: hidden;
