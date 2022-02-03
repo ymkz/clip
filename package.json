@@ -1,5 +1,6 @@
 {
   "private": true,
+  "main": "./dist/worker.js",
   "scripts": {
     "build": "node script/build.mjs",
     "deploy": "wrangler publish --env production",
