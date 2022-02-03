@@ -1,5 +1,6 @@
 import React from "react"
 import { useClipDelete } from "~/view/hooks"
+import { IconDelete } from "~/view/icon-delete"
 import { IconImage } from "~/view/icon-image"
 
 type Props = {
@@ -39,6 +40,12 @@ export const Item = ({ clip }: Props): JSX.Element => {
           </div>
         )}
       </div>
+      <IconDelete
+        className="clip-item__delete"
+        width={20}
+        height={20}
+        onClick={handleClick}
+      />
     </li>
   )
 }
