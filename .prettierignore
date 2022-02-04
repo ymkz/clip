@@ -1,5 +1,7 @@
+.cache
+build
 dist
 node_modules
-public/main.js
+public/build
 package-lock.json
 tsconfig.tsbuildinfo

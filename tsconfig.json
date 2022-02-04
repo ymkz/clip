@@ -1,13 +1,12 @@
 {
   "compilerOptions": {
-    "jsx": "react",
-    "target": "ES2021",
+    "jsx": "react-jsx",
+    "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "Node",
     "lib": ["DOM", "ESNext"],
     "noEmit": true,
     "strict": true,
-    "incremental": true,
     "skipLibCheck": true,
     "isolatedModules": true,
     "esModuleInterop": true,
@@ -20,6 +19,5 @@
       "~/*": ["./src/*"]
     }
   },
-  "include": ["env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules", "dist"]
+  "include": ["remix.env.d.ts", "**/*.ts", "**/*.tsx"]
 }

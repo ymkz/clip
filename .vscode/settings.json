@@ -7,6 +7,7 @@
   "editor.rulers": [80],
   "search.exclude": {
     "**/dist": true,
+    "**/build": true,
     "**/node_modules": true,
     "**/package-lock.json": true,
     "**/tsconfig.tsbuildinfo": true

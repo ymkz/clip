@@ -1,25 +1,26 @@
 compatibility_date = "2022-01-01"
-
-workers_dev = false
 type = "javascript"
+workers_dev = false
 
+name = "clip-local"
 vars = { ENVIRONMENT = "local" }
 kv_namespaces = [{ binding = "DB", id = "" }]
 
 [env.production]
 name = "clip"
 vars = { ENVIRONMENT = "production" }
-kv_namespaces = [{ binding = "DB", id = "5e15a12c6dd04a59a97e2ae440409b34" }]
+kv_namespaces = [{ binding = "DB", id = "" }]
+
+[build]
+command = "npm run build"
+watch_dir = "src"
+
+[build.upload]
+format = "service-worker"
 
 [site]
 bucket = "./public"
 entry-point = "."
-
-[build]
-command = "npm run build"
-
-[build.upload]
-format = "service-worker"
 
 [miniflare]
 host = "localhost"

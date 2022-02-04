@@ -1,4 +1,4 @@
-import { encode, toHEX } from "~/api/utils/internal"
+import { encode, toHEX } from "~/utils/internal"
 
 export async function uploadImage(clipItem: ClipItem): Promise<string> {
   const endpoint = "https://api.cloudinary.com/v1_1/ymkz/image/upload"

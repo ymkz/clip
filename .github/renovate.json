@@ -4,6 +4,7 @@
   "schedule": ["after 9pm and before 11pm on friday"],
   "dependencyDashboard": true,
   "automergeStrategy": "squash",
+  "ignoreDeps": ["@cloudflare/workers-types"],
   "lockFileMaintenance": {
     "enabled": true,
     "automerge": true

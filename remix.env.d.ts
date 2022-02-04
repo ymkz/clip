@@ -1,3 +1,5 @@
+/// <reference types="@remix-run/dev" />
+/// <reference types="@remix-run/cloudflare-workers/globals" />
 /// <reference types="@cloudflare/workers-types" />
 
 declare const DB: KVNamespace
@@ -12,11 +14,3 @@ type ClipItem = {
   description?: string
   imageUrl?: string
 }
-
-// import "hono"
-
-// declare module "hono" {
-//   interface Env {
-//     DB: KVNamespace
-//   }
-// }

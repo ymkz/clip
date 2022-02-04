@@ -15,6 +15,7 @@ body {
 
 body {
   -webkit-font-smoothing: antialiased;
+  isolation: isolate;
   margin: 0;
   line-height: 1.5;
   font-family: -apple-system, "BlinkMacSystemFont", "Hiragino Kaku Gothic ProN",
@@ -22,33 +23,13 @@ body {
 }
 
 img,
-picture,
-video,
-canvas,
 svg {
   display: block;
   max-width: 100%;
 }
 
-input,
-button,
-textarea,
-select {
+button {
   font: inherit;
-}
-
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  overflow-wrap: break-word;
-}
-
-#root {
-  isolation: isolate;
 }
 
 .clip-list {
@@ -150,15 +131,23 @@ h6 {
   color: #9ca3af;
 }
 
-.clip-item__delete {
+.clip-item__delete--form {
   display: none;
   position: absolute;
   top: 0;
-  right: -32px;
-  color: #6b7280;
+  right: -28px;
 }
 @media (min-width: 768px) {
-  .clip-item__delete {
+  .clip-item__delete--form {
     display: block;
   }
+}
+
+.clip-item__delete--button {
+  all: unset;
+  cursor: pointer;
+}
+
+.clip-item__delete--icon {
+  color: #6b7280;
 }
