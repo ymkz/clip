@@ -1,6 +1,13 @@
-import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "remix"
+import {
+  Links,
+  LinksFunction,
+  Meta,
+  Outlet,
+  Scripts,
+  ScrollRestoration,
+} from "remix"
 
-export function links() {
+export const links: LinksFunction = () => {
   return [
     {
       rel: "stylesheet",
@@ -29,10 +36,15 @@ export default function App() {
     <html lang="ja">
       <head>
         <meta charSet="utf-8" />
+        <meta name="description" content="A website about ymkz" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <meta name="theme-color" content="#ffffff" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-title" content="ymkz.co" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="#ffffff" />
+        <title>Clip</title>
         <Meta />
         <Links />
-        <title>Clip</title>
       </head>
       <body>
         <Outlet />
