@@ -39,7 +39,7 @@ export const Item = ({ clip }: Props): JSX.Element => {
         action="/api/remove"
         reloadDocument
       >
-        <input hidden name="id" value={clip.id} />
+        <input hidden name="id" defaultValue={clip.id} />
         <button className="clip-item__delete--button" type="submit">
           <IconRemove
             className="clip-item__delete--icon"
