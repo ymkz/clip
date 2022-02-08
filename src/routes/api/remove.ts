@@ -18,10 +18,11 @@ export const action: ActionFunction = async ({ context, request }) => {
   })
 
   if (ENVIRONMENT === "production") {
-    const task = async () => {
-      await removeImage(id, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET)
-    }
-    context.waitUntil(task())
+    await removeImage(id, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET).catch(
+      () => {
+        throw json({ reason: "failed to remove image from cloudinary" }, 500)
+      }
+    )
   }
 
   return redirect("/")
