@@ -26,10 +26,12 @@ export const action: ActionFunction = async ({ context, request }) => {
       throw new ClipError("failed to add item to kv", 500)
     })
 
-    // waitUntilで非同期にしたいが、waitUntilがどこからとれるのか不明
     if (ENVIRONMENT === "production" && clipItem.imageUrl) {
-      const uploadedImageUrl = await uploadImage(clipItem)
-      await updateOneOfImageUrl(DB, clipItem.id, uploadedImageUrl)
+      const task = async () => {
+        const uploadedImageUrl = await uploadImage(clipItem)
+        await updateOneOfImageUrl(DB, clipItem.id, uploadedImageUrl)
+      }
+      context.waitUntil(task())
     }
   } catch (err) {
     if (err instanceof ClipError) {

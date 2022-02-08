@@ -23,9 +23,11 @@ export const action: ActionFunction = async ({ context, request }) => {
       throw new ClipError("failed to remove item from kv", 500)
     })
 
-    // waitUntilで非同期にしたいが、waitUntilがどこからとれるのか不明
     if (ENVIRONMENT === "production") {
-      await removeImage(id, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET)
+      const task = async () => {
+        await removeImage(id, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET)
+      }
+      context.waitUntil(task())
     }
   } catch (err) {
     if (err instanceof ClipError) {
