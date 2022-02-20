@@ -1,12 +1,19 @@
-import { Form } from "remix"
-import { IconImage } from "~/components/icon-image"
-import { IconRemove } from "~/components/icon-remove"
+import React from 'react'
+import { useClipDelete } from '~/view/clip-hook'
+import { IconDelete } from '~/view/icon-delete'
+import { IconImage } from '~/view/icon-image'
 
 type Props = {
   clip: ClipItem
 }
 
-export const Item = ({ clip }: Props): JSX.Element => {
+export function ClipItem({ clip }: Props) {
+  const { deleteClip } = useClipDelete()
+
+  const handleClick = () => {
+    deleteClip(clip.id)
+  }
+
   return (
     <li className="clip-item">
       <a
@@ -33,21 +40,12 @@ export const Item = ({ clip }: Props): JSX.Element => {
           </div>
         )}
       </div>
-      <Form
-        className="clip-item__delete--form"
-        method="post"
-        action="/api/remove"
-        reloadDocument
-      >
-        <input hidden name="id" defaultValue={clip.id} />
-        <button className="clip-item__delete--button" type="submit">
-          <IconRemove
-            className="clip-item__delete--icon"
-            width={20}
-            height={20}
-          />
-        </button>
-      </Form>
+      <IconDelete
+        className="clip-item__delete"
+        width={16}
+        height={16}
+        onClick={handleClick}
+      />
     </li>
   )
 }

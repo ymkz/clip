@@ -1,6 +1,4 @@
-.cache
-build
 dist
 node_modules
-public/build
+public/render.js
 tsconfig.tsbuildinfo

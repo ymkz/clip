@@ -18,7 +18,7 @@ export const decode = (input: ArrayBufferView | ArrayBuffer): string => {
 
 export function toHEX(input: ArrayBuffer): string {
   const arr = new Uint8Array(input)
-  let output = ""
+  let output = ''
   for (let i = 0; i < arr.length; i++) {
     output += HEX[arr[i]]
   }

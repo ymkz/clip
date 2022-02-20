@@ -1,15 +1,26 @@
-import { createEventHandler } from "@remix-run/cloudflare-workers"
-// @ts-ignore
-import * as build from "../build"
+import { Hono } from 'hono'
+import { serveStatic } from 'hono/serve-static'
+import { addClip } from '~/api/add'
+import { removeClip } from '~/api/del'
+import { getClips } from '~/api/get'
 
-addEventListener("fetch", (_event) => {
-  return createEventHandler({
-    build,
-    getLoadContext: (event) => {
-      return {
-        // @ts-ignore
-        waitUntil: event.waitUntil,
-      }
-    },
-  })(_event)
-})
+const app = new Hono()
+
+app.use('*', serveStatic())
+app.get('/api/get', getClips)
+app.post('/api/add', addClip)
+app.delete('/api/del', removeClip)
+
+app.notFound = (ctx) => {
+  return ctx.json({ error: { reason: 'not found' } }, 404)
+}
+
+app.onError = (err = { reason: 'unexpected error', status: 500 }, ctx) => {
+  if (err instanceof Error) {
+    return ctx.json({ error: { reason: 'unknown error' } }, 500)
+  } else {
+    return ctx.json({ error: { reason: err.reason } }, err.status)
+  }
+}
+
+app.fire()

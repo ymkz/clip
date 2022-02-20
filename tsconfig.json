@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "jsx": "react-jsx",
-    "target": "ESNext",
+    "jsx": "react",
+    "target": "ES2021",
     "module": "ESNext",
     "moduleResolution": "Node",
     "lib": ["DOM", "ESNext"],
@@ -19,5 +19,6 @@
       "~/*": ["./src/*"]
     }
   },
-  "include": ["remix.env.d.ts", "**/*.ts", "**/*.tsx"]
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules", "dist", "public"]
 }

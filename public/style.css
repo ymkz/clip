@@ -15,21 +15,40 @@ body {
 
 body {
   -webkit-font-smoothing: antialiased;
-  isolation: isolate;
   margin: 0;
   line-height: 1.5;
-  font-family: -apple-system, "BlinkMacSystemFont", "Hiragino Kaku Gothic ProN",
-    "Hiragino Sans", Meiryo, sans-serif, "Segoe UI Emoji";
+  font-family: -apple-system, 'BlinkMacSystemFont', 'Hiragino Kaku Gothic ProN',
+    'Hiragino Sans', Meiryo, sans-serif, 'Segoe UI Emoji';
 }
 
 img,
+picture,
+video,
+canvas,
 svg {
   display: block;
   max-width: 100%;
 }
 
-button {
+input,
+button,
+textarea,
+select {
   font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+#root {
+  isolation: isolate;
 }
 
 .clip-list {
@@ -107,6 +126,8 @@ button {
   height: 80px;
   flex-shrink: 0;
   border-radius: 4px;
+  cursor: pointer;
+  z-index: 1;
 }
 
 .clip-item__image--exist {
@@ -129,23 +150,16 @@ button {
   color: #9ca3af;
 }
 
-.clip-item__delete--form {
+.clip-item__delete {
   display: none;
   position: absolute;
   top: 0;
-  right: -28px;
-}
-@media (min-width: 768px) {
-  .clip-item__delete--form {
-    display: block;
-  }
-}
-
-.clip-item__delete--button {
-  all: unset;
+  right: -24px;
+  color: #6b7280;
   cursor: pointer;
 }
-
-.clip-item__delete--icon {
-  color: #6b7280;
+@media (min-width: 768px) {
+  .clip-item__delete {
+    display: block;
+  }
 }

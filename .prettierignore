@@ -1,7 +1,5 @@
-.cache
-build
 dist
 node_modules
-public/build
+public/render.js
 package-lock.json
 tsconfig.tsbuildinfo
