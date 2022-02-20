@@ -1,34 +1,21 @@
-import { useMutation, useQuery, useQueryClient } from 'react-query'
+import useSWR, { useSWRConfig } from 'swr'
 
-export async function fetchClips() {
-  return fetch('/api/get').then((res) => res.json())
-}
-
-export function useClips() {
-  const { data: clips } = useQuery<unknown, unknown, ClipItem[]>(
-    '/api/get',
-    async () => fetchClips()
-  )
+export const useClips = () => {
+  const { data: clips } = useSWR<ClipItem[]>('/api/get')
 
   return { clips }
 }
 
-export function useClipDelete() {
-  const queryClient = useQueryClient()
+export const useClipDelete = () => {
+  const { mutate } = useSWRConfig()
 
-  const { mutate: deleteClip } = useMutation(
-    (id: ClipItem['id']) => {
-      return fetch('/api/del', {
-        method: 'DELETE',
-        body: JSON.stringify({ id }),
-      })
-    },
-    {
-      onSuccess: () => {
-        queryClient.invalidateQueries('/api/get')
-      },
-    }
-  )
+  const deleteClip = async (id: string) => {
+    await fetch('/api/del', {
+      method: 'DELETE',
+      body: JSON.stringify({ id }),
+    })
+    await mutate('/api/get')
+  }
 
   return { deleteClip }
 }
