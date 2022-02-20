@@ -23,5 +23,5 @@ export async function removeClip(ctx: Context<never>) {
     ctx.event.waitUntil(task())
   }
 
-  return ctx.json([{ message: 'clip delete succeeded' }])
+  return ctx.json([{ msg: 'clip delete succeeded' }])
 }

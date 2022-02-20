@@ -12,14 +12,14 @@ app.post('/api/add', addClip)
 app.delete('/api/del', removeClip)
 
 app.notFound = (ctx) => {
-  return ctx.json({ error: { reason: 'not found' } }, 404)
+  return ctx.json({ err: { reason: 'not found' } }, 404)
 }
 
 app.onError = (err = { reason: 'unexpected error', status: 500 }, ctx) => {
   if (err instanceof Error) {
-    return ctx.json({ error: { reason: 'unknown error' } }, 500)
+    return ctx.json({ err: { reason: 'unknown error' } }, 500)
   } else {
-    return ctx.json({ error: { reason: err.reason } }, err.status)
+    return ctx.json({ err: { reason: err.reason } }, err.status)
   }
 }
 

@@ -14,7 +14,7 @@ export async function addClip(ctx: Context<never>) {
   }
 
   const clipItem = await fetchClipItem(body.url).catch(() => {
-    throw AppError.FETCH_PAGE_INFO_ERROR
+    throw AppError.FETCH_CLIP_ITEM_ERROR
   })
 
   await addOne(DB, clipItem).catch(() => {
@@ -29,5 +29,5 @@ export async function addClip(ctx: Context<never>) {
     ctx.event.waitUntil(task())
   }
 
-  return ctx.json({ message: 'clip add succeeded' })
+  return ctx.json({ msg: 'clip add succeeded' })
 }

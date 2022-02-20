@@ -28,8 +28,8 @@ const KV_REMOVE_ONE_ERROR: AppErrorType = {
   status: 500,
 }
 
-const FETCH_PAGE_INFO_ERROR: AppErrorType = {
-  reason: 'failed to fetch page info',
+const FETCH_CLIP_ITEM_ERROR: AppErrorType = {
+  reason: 'failed to fetch clip item',
   status: 500,
 }
 
@@ -40,5 +40,5 @@ export const AppError = {
   KV_GET_ALL_ERROR,
   KV_ADD_ONE_ERROR,
   KV_REMOVE_ONE_ERROR,
-  FETCH_PAGE_INFO_ERROR,
+  FETCH_CLIP_ITEM_ERROR,
 }
