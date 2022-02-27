@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@v2
       - run: echo "::set-output name=VERSION::$(cat .node-version)"
         id: node-version
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
           node-version: ${{ steps.node-version.outputs.VERSION }}
           cache: npm
