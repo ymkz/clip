@@ -4,21 +4,21 @@ import { removeImage } from '~/api/clip-image'
 import { removeOne } from '~/api/clip-kv'
 
 export async function removeClip(ctx: Context<never>) {
-  const body = await ctx.req.json<{ id: string }>().catch(() => {
-    throw AppError.REQUEST_BODY_PARSE_ERROR
+  const { id } = await ctx.req.json<{ id: string }>().catch(() => {
+    throw AppError.ErrRequestBodyParseFailure
   })
 
-  if (!('id' in body)) {
-    throw AppError.REQUEST_BODY_ID_MISSING_ERROR
+  if (!id) {
+    throw AppError.ErrRequestBodyIdMissing
   }
 
-  await removeOne(DB, body.id).catch(() => {
-    throw AppError.KV_REMOVE_ONE_ERROR
+  await removeOne(DB, id).catch(() => {
+    throw AppError.ErrKvRemoveOneFailure
   })
 
   if (ENVIRONMENT === 'production') {
     const task = async () => {
-      await removeImage(body.id, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET)
+      await removeImage(id, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET)
     }
     ctx.event.waitUntil(task())
   }
