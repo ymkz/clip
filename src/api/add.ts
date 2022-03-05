@@ -5,20 +5,20 @@ import { uploadImage } from '~/api/clip-image'
 import { addOne, updateOneOfImageUrl } from '~/api/clip-kv'
 
 export async function addClip(ctx: Context<never>) {
-  const body = await ctx.req.json<{ url: string }>().catch(() => {
-    throw AppError.REQUEST_BODY_PARSE_ERROR
+  const { url } = await ctx.req.json<{ url: string }>().catch(() => {
+    throw AppError.ErrRequestBodyParseFailure
   })
 
-  if (!('url' in body)) {
-    throw AppError.REQUEST_BODY_URL_MISSING_ERROR
+  if (!url) {
+    throw AppError.ErrRequestBodyUrlMissing
   }
 
-  const clipItem = await fetchClipItem(body.url).catch(() => {
-    throw AppError.FETCH_CLIP_ITEM_ERROR
+  const clipItem = await fetchClipItem(url).catch(() => {
+    throw AppError.ErrFetchClipItemFailure
   })
 
   await addOne(DB, clipItem).catch(() => {
-    throw AppError.KV_ADD_ONE_ERROR
+    throw AppError.ErrKvAddOneFailure
   })
 
   if (ENVIRONMENT === 'production' && clipItem.imageUrl) {
