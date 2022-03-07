@@ -4,7 +4,7 @@ export async function fetchClipItem(url: string): Promise<ClipItem> {
   const response = await fetch(url, { headers: { 'user-agent': UA } })
   const info: { [key: string]: string } = {}
   await new HTMLRewriter()
-    .on('title', {
+    .on('head > title', {
       text(text) {
         if (text.text) {
           info['title'] = text.text
