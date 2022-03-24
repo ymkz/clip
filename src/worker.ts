@@ -12,11 +12,6 @@ app.get('/api/get', getClips)
 app.post('/api/add', addClip)
 app.delete('/api/del', removeClip)
 
-app.notFound((ctx) => {
-  console.error(`[ERROR]: not found`)
-  return ctx.json({ err: { reason: 'not found' } }, 404)
-})
-
 app.onError((err = Error('unexpected error'), ctx) => {
   console.error(`[ERROR]: ${err}`)
   return ctx.json({ err: { reason: err.message } }, 500)
