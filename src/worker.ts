@@ -13,7 +13,7 @@ app.post('/api/add', addClip)
 app.delete('/api/del', removeClip)
 
 app.onError((err = Error('unexpected error'), ctx) => {
-  console.error(`[ERROR]: ${err}`)
+  console.error(JSON.stringify({ err: { reason: err.message } }))
   return ctx.json({ err: { reason: err.message } }, 500)
 })
 
