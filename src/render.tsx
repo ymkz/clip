@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { createRoot } from 'react-dom/client'
 import { SWRConfig } from 'swr'
 import { ClipList } from '~/view/clip-list'
 
@@ -16,4 +16,8 @@ function App() {
   )
 }
 
-ReactDOM.render(<App />, document.querySelector('#root'))
+const container = document.querySelector('#root')
+
+if (container) {
+  createRoot(container).render(<App />)
+}
