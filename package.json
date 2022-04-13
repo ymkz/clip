@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "@cloudflare/workers-types": "3.4.0",
-    "@types/react": "18.0.3",
+    "@types/react": "18.0.4",
     "@types/react-dom": "18.0.0",
     "esbuild": "0.14.36",
     "miniflare": "2.4.0",
