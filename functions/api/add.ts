@@ -26,7 +26,7 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
     url,
     title: fetchedClipInfo.title,
     description: fetchedClipInfo.description,
-    hasImage: fetchedClipInfo.imageUrl ? true : false,
+    hasImage: Boolean(fetchedClipInfo.imageUrl),
   }
 
   await addClipItem(env.KV_CLIP_DATA, clipItem).catch(() => {

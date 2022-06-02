@@ -11,7 +11,7 @@ type ClipItem = {
   url: string
   title: string
   description?: string
-  hasImage?: boolean
+  hasImage: boolean
 }
 
 type FetchedClipInfo = {

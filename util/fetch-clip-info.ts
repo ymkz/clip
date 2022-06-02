@@ -1,3 +1,16 @@
+export function validateHttpUrl(maybeUrl?: string) {
+  if (!maybeUrl) {
+    return undefined
+  }
+
+  try {
+    const url = new URL(maybeUrl)
+    return url.protocol.startsWith('http') ? maybeUrl : undefined
+  } catch (e) {
+    return undefined
+  }
+}
+
 export async function fetchClipInfo(url: string): Promise<FetchedClipInfo> {
   const UA =
     'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36'
@@ -26,17 +39,24 @@ export async function fetchClipInfo(url: string): Promise<FetchedClipInfo> {
     .transform(response.clone())
     .text()
 
+  const title =
+    info['title'] || info['og:title'] || info['twitter:title'] || url
+  const description =
+    info['description'] ||
+    info['og:description'] ||
+    info['twitter:description'] ||
+    undefined
+  const imageUrl =
+    info['og:image'] ||
+    info['og:image:url'] ||
+    info['og:image:secure_url'] ||
+    info['twitter:image'] ||
+    info['twitter:image:src'] ||
+    undefined
+
   return {
-    title: info['title'] || info['og:title'] || info['twitter:title'],
-    description:
-      info['description'] ||
-      info['og:description'] ||
-      info['twitter:description'],
-    imageUrl:
-      info['og:image'] ||
-      info['og:image:url'] ||
-      info['og:image:secure_url'] ||
-      info['twitter:image'] ||
-      info['twitter:image:src'],
+    title,
+    description,
+    imageUrl: validateHttpUrl(imageUrl),
   }
 }
