@@ -1,27 +1,7 @@
-compatibility_date = "2022-01-01"
-
-workers_dev = false
-type = "javascript"
-
-vars = { ENVIRONMENT = "local" }
-kv_namespaces = [{ binding = "DB", id = "" }]
-
-[env.production]
 name = "clip"
-vars = { ENVIRONMENT = "production" }
-kv_namespaces = [{ binding = "DB", id = "5e15a12c6dd04a59a97e2ae440409b34" }]
+compatibility_date = "2022-06-01"
 
-[site]
-bucket = "./public"
-entry-point = "."
-
-[build]
-command = "npm run build"
-
-[build.upload]
-format = "service-worker"
-
-[miniflare]
-host = "localhost"
-port = 3000
-kv_persist = true
+[[kv_namespaces]]
+binding = "KV_CLIP_DATA"
+id = "69c6591ca6e64cf1b6f7b8e66aaf9744"         # clip-data
+preview_id = "a78cb999099b43f489f21ef69ab6d359" # clip-data-dev

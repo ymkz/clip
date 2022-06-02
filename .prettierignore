@@ -1,5 +1,5 @@
+.mf
 dist
 node_modules
-public/render.js
 package-lock.json
 tsconfig.tsbuildinfo

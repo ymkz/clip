@@ -1,6 +1,5 @@
-import React from 'react'
-import { useClips } from '~/view/clip-hook'
-import { ClipItem } from '~/view/clip-item'
+import { useClips } from '../hooks/clip-hooks'
+import { ClipItem } from './clip-item'
 
 export function ClipList() {
   const { clips } = useClips()

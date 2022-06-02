@@ -5,13 +5,12 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "search.exclude": {
+    "**/.mf": true,
     "**/dist": true,
     "**/node_modules": true,
-    "**/public/render.js": true,
     "**/package-lock.json": true,
     "**/tsconfig.tsbuildinfo": true
   },
-  "typescript.preferences.importModuleSpecifier": "non-relative",
   "[toml]": {
     "editor.defaultFormatter": "tamasfe.even-better-toml"
   }

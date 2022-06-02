@@ -1,6 +1,4 @@
-import React from 'react'
-
-export function IconDelete(props: React.SVGProps<SVGSVGElement>): JSX.Element {
+export function IconDelete(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg width="1em" height="1em" viewBox="0 0 256 256" {...props}>
       <path

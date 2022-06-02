@@ -1,8 +1,9 @@
-export async function fetchClipItem(url: string): Promise<ClipItem> {
+export async function fetchClipInfo(url: string): Promise<FetchedClipInfo> {
   const UA =
-    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.80 Safari/537.36'
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36'
   const response = await fetch(url, { headers: { 'user-agent': UA } })
   const info: { [key: string]: string } = {}
+
   await new HTMLRewriter()
     .on('head > title', {
       text(text) {
@@ -24,9 +25,8 @@ export async function fetchClipItem(url: string): Promise<ClipItem> {
     })
     .transform(response.clone())
     .text()
+
   return {
-    id: Date.now().toString(),
-    url,
     title: info['title'] || info['og:title'] || info['twitter:title'],
     description:
       info['description'] ||

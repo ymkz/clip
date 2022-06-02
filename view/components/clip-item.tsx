@@ -1,7 +1,6 @@
-import React from 'react'
-import { useClipDelete } from '~/view/clip-hook'
-import { IconDelete } from '~/view/icon-delete'
-import { IconImage } from '~/view/icon-image'
+import { useClipDelete } from '../hooks/clip-hooks'
+import { IconDelete } from './icon-delete'
+import { IconImage } from './icon-image'
 
 type Props = {
   clip: ClipItem
@@ -28,11 +27,11 @@ export function ClipItem({ clip }: Props) {
         <div className="clip-item__description">{clip.description}</div>
       </div>
       <div className="clip-item__image">
-        {clip.imageUrl ? (
+        {clip.hasImage ? (
           <img
             className="clip-item__image--exist"
             loading="lazy"
-            src={clip.imageUrl}
+            src={`/api/image/${clip.id}`}
           />
         ) : (
           <div className="clip-item__image--empty">
