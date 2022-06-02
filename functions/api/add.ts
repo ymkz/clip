@@ -35,13 +35,6 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
 
   if (fetchedClipInfo.imageUrl) {
     const response = await fetch(fetchedClipInfo.imageUrl)
-    const size = Number(response.headers.get('Content-Length'))
-    const SIZE_LIMIT = 262144 // 2^18 => 256KiB
-
-    if (!size || size > SIZE_LIMIT) {
-      throw AppError.ErrImageSizeLimitOver
-    }
-
     const image = await response.arrayBuffer()
 
     await addClipImage(

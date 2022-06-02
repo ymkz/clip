@@ -13,6 +13,4 @@ export const AppError = {
   ErrKvGetClipImageFailure: new Error('failed to remove image from kv'),
   ErrKvAddClipImageFailure: new Error('failed to add clip image from kv'),
   ErrKvDeleteClipImageFailure: new Error('failed to delete clip image from kv'),
-
-  ErrImageSizeLimitOver: new Error('exceeding the image size upper limit'),
 }
