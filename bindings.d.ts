@@ -19,3 +19,8 @@ type FetchedClipInfo = {
   description?: string
   imageUrl?: string
 }
+
+type FetchedClipImage = {
+  image?: ArrayBuffer
+  contentType?: string
+}
