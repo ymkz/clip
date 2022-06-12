@@ -1,5 +1,5 @@
 export const getClipData = async (kv: KVNamespace): Promise<ClipItem[]> => {
-  const data = await kv.get<ClipItem[]>('data', 'json')
+  const data = await kv.get<ClipItem[]>('clip-data', 'json')
   return data ?? []
 }
 
@@ -9,7 +9,7 @@ export const addClipItem = async (
 ): Promise<void> => {
   const prev = await getClipData(kv)
   const next = [data, ...prev]
-  await kv.put('data', JSON.stringify(next))
+  await kv.put('clip-data', JSON.stringify(next))
 }
 
 export const deleteClipItem = async (
@@ -18,7 +18,7 @@ export const deleteClipItem = async (
 ): Promise<void> => {
   const prev = await getClipData(kv)
   const next = prev.filter((item) => item.id !== id)
-  await kv.put('data', JSON.stringify(next))
+  await kv.put('clip-data', JSON.stringify(next))
 }
 
 export const getClipImage = async (

@@ -4,4 +4,4 @@ compatibility_date = "2022-06-01"
 [[kv_namespaces]]
 binding = "KV_CLIP_DATA"
 id = "69c6591ca6e64cf1b6f7b8e66aaf9744"         # clip-data
-preview_id = "a78cb999099b43f489f21ef69ab6d359" # clip-data-dev
+preview_id = "f5295a93683f4062baa249bb196df937" # test-data
