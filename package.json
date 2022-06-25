@@ -3,7 +3,7 @@
   "scripts": {
     "build": "run-p build:*",
     "build:pages": "vite build",
-    "build:worker": "esbuild --bundle --minify --format=esm --outfile=./_worker.js ./src/worker.ts",
+    "build:worker": "esbuild --bundle --minify --format=esm --outfile=./dist/_worker.js ./src/worker.ts",
     "dev": "run-p dev:*",
     "dev:pages": "wrangler pages dev --port=3000 --kv=KV_CLIP_DATA -- vite dev",
     "dev:worker": "esbuild --bundle --watch --format=esm --outfile=./_worker.js ./src/worker.ts",
