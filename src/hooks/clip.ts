@@ -1,6 +1,6 @@
 import useSWR, { useSWRConfig } from 'swr'
 
-export const useClips = () => {
+export const useClipData = () => {
   const { data: clips } = useSWR<ClipItem[]>('/api/get')
 
   return { clips }

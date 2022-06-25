@@ -1,0 +1,24 @@
+POST http://localhost:3000/api/add
+Content-Type: application/json
+
+{
+  "url": "https://example.com"
+}
+
+###
+
+POST http://localhost:3000/api/add
+Content-Type: application/json
+
+{
+  "url": "https://zenn.dev"
+}
+
+###
+
+POST http://localhost:3000/api/add
+Content-Type: application/json
+
+{
+  "url": "https://qiita.com/yoshii0110/items/d40a1c8bcf0353b5bff3"
+}

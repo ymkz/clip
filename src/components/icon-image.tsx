@@ -1,4 +1,6 @@
-export function IconImage(props: React.SVGProps<SVGSVGElement>) {
+import { FC, SVGProps } from 'react'
+
+export const IconImage: FC<SVGProps<SVGSVGElement>> = (props) => {
   return (
     <svg width="1em" height="1em" viewBox="0 0 256 256" {...props}>
       <path

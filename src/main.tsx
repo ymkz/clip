@@ -2,7 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { SWRConfig } from 'swr'
 import { ClipList } from './components/clip-list'
-import './styles/style.css'
+import './styles/global.css'
 
 const container = document.querySelector('#root')
 

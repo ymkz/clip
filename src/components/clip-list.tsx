@@ -1,8 +1,9 @@
-import { useClips } from '../hooks/clip-hooks'
+import { FC } from 'react'
+import { useClipData } from '../hooks/clip'
 import { ClipItem } from './clip-item'
 
-export function ClipList() {
-  const { clips } = useClips()
+export const ClipList: FC = () => {
+  const { clips } = useClipData()
 
   return (
     <ul className="clip-list">

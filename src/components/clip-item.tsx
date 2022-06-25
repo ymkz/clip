@@ -1,4 +1,5 @@
-import { useClipDelete } from '../hooks/clip-hooks'
+import { FC } from 'react'
+import { useClipDelete } from '../hooks/clip'
 import { IconDelete } from './icon-delete'
 import { IconImage } from './icon-image'
 
@@ -6,7 +7,7 @@ type Props = {
   clip: ClipItem
 }
 
-export function ClipItem({ clip }: Props) {
+export const ClipItem: FC<Props> = ({ clip }) => {
   const { deleteClip } = useClipDelete()
 
   const handleClick = () => {

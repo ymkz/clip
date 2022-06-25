@@ -8,6 +8,7 @@
     "**/.mf": true,
     "**/dist": true,
     "**/node_modules": true,
+    "**/.worker.js": true,
     "**/package-lock.json": true,
     "**/tsconfig.tsbuildinfo": true
   },
