@@ -1,15 +1,15 @@
 import useSWR, { useSWRConfig } from 'swr'
 
-export const useClipData = () => {
+export const useGetClipsQuery = () => {
   const { data: clips } = useSWR<ClipItem[]>('/api/get')
 
   return { clips }
 }
 
-export const useClipDelete = () => {
+export const useDeleteClipMutation = () => {
   const { mutate } = useSWRConfig()
 
-  const deleteClip = async (id: string) => {
+  const deleteClip = async (id: ClipItem['id']) => {
     await fetch('/api/del', {
       method: 'DELETE',
       body: JSON.stringify({ id }),
