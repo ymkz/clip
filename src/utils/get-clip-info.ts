@@ -15,7 +15,7 @@ export async function fetchClipInfo(url: string): Promise<ClipInfo> {
   )
 
   if (!response.ok) {
-    throw E.FetchClipInfoFailOnClient
+    throw E.FetchClipInfoFailOnServer
   }
 
   await new HTMLRewriter()
