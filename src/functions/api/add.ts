@@ -1,14 +1,9 @@
-import { Handler } from 'hono'
-import { E } from '../utils/app-error'
-import { fetchClipInfo } from '../utils/get-clip-info'
-import { addClipImage, addClipItem } from '../utils/kv-repository'
+import { E } from '../../utils/error'
+import { fetchClipInfo } from '../../utils/get-clip-info'
+import { addClipImage, addClipItem } from '../../utils/kv-repository'
 
-type RequestBody = {
-  url?: string
-}
-
-export const add: Handler<never, Env> = async (ctx) => {
-  const { url } = await ctx.req.json<RequestBody>().catch(() => {
+export const apiAdd: PagesFunction<Env> = async (ctx) => {
+  const { url } = await ctx.request.json<ApiAddRequestBody>().catch(() => {
     throw E.RequestBodyParseFailure
   })
 
@@ -30,5 +25,9 @@ export const add: Handler<never, Env> = async (ctx) => {
     hasImage: Boolean(clipInfo.image),
   })
 
-  return ctx.json({ message: 'clip add succeeded' })
+  return new Response(JSON.stringify({ message: 'clip add succeeded' }), {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
 }

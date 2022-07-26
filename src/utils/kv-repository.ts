@@ -1,4 +1,4 @@
-import { E } from './app-error'
+import { E } from './error'
 
 export const getClipData = async (kv: KVNamespace): Promise<ClipItem[]> => {
   try {

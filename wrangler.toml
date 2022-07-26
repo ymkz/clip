@@ -1,5 +1,5 @@
 name = "clip"
-compatibility_date = "2022-06-01"
+compatibility_date = "2022-07-01"
 
 [[kv_namespaces]]
 binding = "KV_CLIP_DATA"

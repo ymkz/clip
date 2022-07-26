@@ -2,7 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { SWRConfig } from 'swr'
 import { ClipList } from './components/clip-list'
-import './styles/global.css'
+import './index.css'
 
 const container = document.querySelector('#root')
 
@@ -12,7 +12,9 @@ if (container) {
       <SWRConfig
         value={{
           shouldRetryOnError: false,
-          fetcher: (req) => fetch(req).then((res) => res.json()),
+          fetcher: async (req: string | Request) => {
+            return fetch(req).then((res) => res.json())
+          },
         }}
       >
         <ClipList />

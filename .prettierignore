@@ -1,6 +1,5 @@
 .mf
 dist
 node_modules
-_worker.js
 package-lock.json
 tsconfig.tsbuildinfo

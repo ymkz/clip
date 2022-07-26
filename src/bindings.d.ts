@@ -1,6 +1,13 @@
 type Env = {
-  ASSETS: { fetch: typeof fetch }
   KV_CLIP_DATA: KVNamespace
+}
+
+type ApiAddRequestBody = {
+  url?: string
+}
+
+type ApiDelRequestBody = {
+  id?: string
 }
 
 type MetaData = {

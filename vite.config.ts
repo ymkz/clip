@@ -7,5 +7,8 @@ export default defineConfig({
   server: {
     open: false,
     port: 3001,
+    hmr: {
+      clientPort: 3001,
+    },
   },
 })

@@ -1,5 +1,3 @@
-import { StatusCode } from 'hono/utils/http-status'
-
 export const ErrorCode = {
   UNKNOWN: 'UNKNOWN',
 
@@ -27,7 +25,7 @@ export const ErrorCode = {
 export class AppError extends Error {
   constructor(
     public code: keyof typeof ErrorCode = ErrorCode.UNKNOWN,
-    public statusCode: StatusCode = 500,
+    public statusCode: number = 500,
     message: string = 'unknown unexpected error caused'
   ) {
     super(message)
