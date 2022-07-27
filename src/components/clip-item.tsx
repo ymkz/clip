@@ -32,7 +32,7 @@ export const ClipItem: FC<Props> = ({ clip }) => {
           <img
             className="clip-item__image--exist"
             loading="lazy"
-            src={`/api/image/${clip.id}`}
+            src={`/image/${clip.id}`}
           />
         ) : (
           <div className="clip-item__image--empty">

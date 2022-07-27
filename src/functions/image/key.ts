@@ -1,5 +1,5 @@
-import { E } from '../utils/error'
-import { getClipImage } from '../utils/kv-repository'
+import { E } from '../../utils/error'
+import { getClipImage } from '../../utils/kv-repository'
 
 export const respondImage: PagesFunction<Env, 'key'> = async (ctx) => {
   if (Array.isArray(ctx.params.key)) {
