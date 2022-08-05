@@ -64,6 +64,7 @@ h6 {
   position: relative;
   display: flex;
   gap: 8px;
+  user-select: none;
 }
 
 .clip-item__link {
