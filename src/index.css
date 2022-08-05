@@ -6,6 +6,7 @@
 
 * {
   margin: 0;
+  user-select: none;
 }
 
 html,
@@ -64,7 +65,6 @@ h6 {
   position: relative;
   display: flex;
   gap: 8px;
-  user-select: none;
 }
 
 .clip-item__link {
