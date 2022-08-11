@@ -14,12 +14,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: echo "::set-output name=VERSION::$(cat .node-version)"
-        id: node-version
       - uses: actions/setup-node@v3
         with:
-          node-version: ${{ steps.node-version.outputs.VERSION }}
-          cache: npm
+          node-version-file: '.node-version'
       - run: npm ci
       - run: npm run lint
       - run: npm run build
