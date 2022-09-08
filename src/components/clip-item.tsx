@@ -20,7 +20,7 @@ export const ClipItem: FC<Props> = ({ clip }) => {
 
   const bind = useLongPress(callback, {
     detect: LongPressDetectEvents.TOUCH,
-    threshold: 1000,
+    threshold: 2000,
   })
 
   const handleClick = () => {
