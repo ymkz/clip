@@ -123,11 +123,21 @@ h6 {
 }
 
 .clip-item__image {
+  position: relative;
   width: 112px;
   height: 80px;
   flex-shrink: 0;
   border-radius: 4px;
   cursor: pointer;
+}
+
+.clip-item__image::before {
+  position: absolute;
+  content: '';
+  inset: 0;
+  box-shadow: 0 0 0 1px #d1d5db inset;
+  mix-blend-mode: darken;
+  border-radius: 4px;
 }
 
 .clip-item__image--exist {
@@ -146,7 +156,6 @@ h6 {
   justify-content: center;
   align-items: center;
   background-color: #f3f4f6;
-  border: 1px solid #d1d5db;
   color: #9ca3af;
 }
 
