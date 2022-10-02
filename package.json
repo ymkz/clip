@@ -9,8 +9,7 @@
   "dependencies": {
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "swr": "1.3.0",
-    "use-long-press": "2.0.2"
+    "swr": "1.3.0"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "3.16.0",

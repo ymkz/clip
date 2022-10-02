@@ -1,5 +1,4 @@
-import { FC, useCallback } from 'react'
-import { LongPressDetectEvents, useLongPress } from 'use-long-press'
+import { FC } from 'react'
 import { useDeleteClipMutation } from '../hooks/clip'
 import { IconDelete } from './icon-delete'
 import { IconImage } from './icon-image'
@@ -11,24 +10,12 @@ type Props = {
 export const ClipItem: FC<Props> = ({ clip }) => {
   const { deleteClip } = useDeleteClipMutation()
 
-  const callback = useCallback(() => {
-    const confirmed = confirm('削除しますか？')
-    if (confirmed) {
-      deleteClip(clip.id)
-    }
-  }, [])
-
-  const bind = useLongPress(callback, {
-    detect: LongPressDetectEvents.TOUCH,
-    threshold: 2000,
-  })
-
   const handleClick = () => {
     deleteClip(clip.id)
   }
 
   return (
-    <li className="clip-item" {...bind()}>
+    <li className="clip-item">
       <a
         className="clip-item__link"
         target="_blank"
