@@ -52,6 +52,13 @@ h6 {
   isolation: isolate;
 }
 
+.empty {
+  display: grid;
+  place-content: center;
+  height: 100vh;
+  color: #9ca3af;
+}
+
 .clip-list {
   max-width: 768px;
   margin: 0 auto;
