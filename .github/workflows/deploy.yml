@@ -12,7 +12,6 @@ permissions:
 env:
   CI: true
   TZ: Asia/Tokyo
-  NODE_ENV: production
 
 jobs:
   deploy:
