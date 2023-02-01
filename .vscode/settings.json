@@ -5,11 +5,10 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "search.exclude": {
-    "**/.mf": true,
+    "**/.wrangler": true,
     "**/dist": true,
     "**/node_modules": true,
-    "**/package-lock.json": true,
-    "**/tsconfig.tsbuildinfo": true
+    "**/package-lock.json": true
   },
   "[toml]": {
     "editor.defaultFormatter": "tamasfe.even-better-toml"

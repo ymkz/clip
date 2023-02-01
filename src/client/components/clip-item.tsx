@@ -1,17 +1,24 @@
+import { useQueryClient } from '@tanstack/react-query'
 import { FC } from 'react'
-import { useDeleteClipMutation } from '../hooks/clip'
+import { ClipSchema } from '../../schema/clip'
+import { trpc } from '../../util/trpc'
 import { IconDelete } from './icon-delete'
 import { IconImage } from './icon-image'
 
-type Props = {
-  clip: ClipItem
+type ClipItemProps = {
+  clip: ClipSchema
 }
 
-export const ClipItem: FC<Props> = ({ clip }) => {
-  const { deleteClip } = useDeleteClipMutation()
+export const ClipItem: FC<ClipItemProps> = ({ clip }) => {
+  const queryClient = useQueryClient()
+  const mutation = trpc.clip.remove.useMutation({
+    onSuccess: () => {
+      queryClient.invalidateQueries(trpc.clip.list.getQueryKey())
+    },
+  })
 
   const handleClick = () => {
-    deleteClip(clip.id)
+    mutation.mutate({ id: clip.id })
   }
 
   return (
@@ -32,7 +39,7 @@ export const ClipItem: FC<Props> = ({ clip }) => {
           <img
             className="clip-item__image--exist"
             loading="lazy"
-            src={`/image/${clip.id}`}
+            src={`/api/image/${clip.id}`}
           />
         ) : (
           <div className="clip-item__image--empty">

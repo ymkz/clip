@@ -1,24 +1,38 @@
 {
+  "name": "clip",
   "private": true,
+  "type": "module",
   "scripts": {
     "build": "vite build",
-    "dev": "wrangler pages dev --local=true --port=3000 --kv=KV_CLIP_DATA -- vite dev",
-    "fmt": "prettier --write .",
-    "lint": "tsc --noEmit && prettier --check ."
+    "dev": "wrangler dev --local --persist",
+    "format": "prettier --write .",
+    "lint": "tsc && prettier --check ."
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
   },
   "dependencies": {
+    "@tanstack/react-query": "4.24.4",
+    "@trpc/client": "10.9.1",
+    "@trpc/react-query": "10.9.1",
+    "@trpc/server": "10.9.1",
+    "hono": "2.7.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "swr": "2.0.3"
+    "zod": "3.20.2"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "4.20230115.0",
+    "@types/node": "18.11.18",
     "@types/react": "18.0.27",
     "@types/react-dom": "18.0.10",
-    "@vitejs/plugin-react": "3.0.1",
+    "@vitejs/plugin-react-swc": "3.0.1",
+    "eslint": "8.33.0",
     "prettier": "2.8.3",
-    "typescript": "4.9.4",
+    "prettier-plugin-packagejson": "2.4.2",
+    "typescript": "4.9.5",
     "vite": "4.0.4",
-    "wrangler": "2.8.1"
+    "wrangler": "2.9.0"
   }
 }

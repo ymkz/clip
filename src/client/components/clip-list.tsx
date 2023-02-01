@@ -1,10 +1,12 @@
 import { FC } from 'react'
-import { useGetClipsQuery } from '../hooks/clip'
+import { ClipSchema } from '../../schema/clip'
 import { ClipItem } from './clip-item'
 
-export const ClipList: FC = () => {
-  const { clips } = useGetClipsQuery()
+type ClipListProps = {
+  clips: ClipSchema[]
+}
 
+export const ClipList: FC<ClipListProps> = ({ clips }) => {
   return (
     <ul className="clip-list">
       {clips?.map((clip) => (
