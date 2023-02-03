@@ -1,5 +1,5 @@
 import { Handler } from 'hono'
-import { getClipImage } from '../../util/kv'
+import { getClipImage } from '../helper/kv'
 
 export const imageHandler: Handler<'key', Env> = async (ctx) => {
   const key = ctx.req.param('key')

@@ -1,4 +1,4 @@
-import { ClipImage, ClipInfo } from '../schema/clip'
+import { ClipImage, ClipInfo } from '../../schema/clip'
 import { createFetchError } from './error'
 
 export async function getClipInfo(url: string): Promise<ClipInfo> {

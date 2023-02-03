@@ -1,4 +1,4 @@
-import { ClipImage, ClipImageMetaData, ClipSchema } from '../schema/clip'
+import { ClipImage, ClipImageMetaData, ClipSchema } from '../../schema/clip'
 import { createKVError } from './error'
 
 export const getClipData = async (kv: KVNamespace): Promise<ClipSchema[]> => {

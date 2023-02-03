@@ -1,6 +1,6 @@
 import { initTRPC } from '@trpc/server'
 import { clipRemoveSchema } from '../../schema/clip'
-import { deleteClipImage, deleteClipItem, getClipData } from '../../util/kv'
+import { deleteClipImage, deleteClipItem, getClipData } from '../helper/kv'
 import { TrpcContext } from './context'
 
 const t = initTRPC.context<TrpcContext>().create()

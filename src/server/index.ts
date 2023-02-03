@@ -1,8 +1,8 @@
 import { Hono } from 'hono'
 import { serveStatic } from 'hono/serve-static.module'
-import { FetchError, KVError } from '../util/error'
 import { addHandler } from './api/add'
 import { imageHandler } from './api/image'
+import { FetchError, KVError } from './helper/error'
 import { trpcHandler } from './trpc/handler'
 
 const app = new Hono<Env>()
