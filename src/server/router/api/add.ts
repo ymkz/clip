@@ -1,7 +1,7 @@
 import { Handler } from 'hono'
-import { ClipAddSchema } from '../../schema/clip'
-import { getClipInfo } from '../helper/clip'
-import { addClipImage, addClipItem } from '../helper/kv'
+import { ClipAddSchema } from '../../../schema/clip'
+import { getClipInfo } from '../../helper/clip'
+import { addClipImage, addClipItem } from '../../helper/kv'
 
 export const addHandler: Handler<Env> = async (ctx) => {
   const { url } = await ctx.req.json<ClipAddSchema>().catch(() => {
