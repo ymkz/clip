@@ -9,5 +9,8 @@ export const trpcHandler: Handler<Env> = (ctx) => {
     req: ctx.req,
     router: appRouter,
     createContext: createTrpcContext(ctx),
+    onError: ({ error, type, path, req, input, ctx }) => {
+      console.error(error)
+    },
   })
 }
