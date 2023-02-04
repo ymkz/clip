@@ -4,5 +4,9 @@ import { defineConfig } from 'vite'
 export default defineConfig({
   plugins: [react()],
   clearScreen: false,
-  publicDir: 'src/public',
+  root: 'src/client',
+  build: {
+    outDir: '../../dist',
+    emptyOutDir: true,
+  },
 })
