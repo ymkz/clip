@@ -13,11 +13,11 @@
     "singleQuote": true
   },
   "dependencies": {
-    "@tanstack/react-query": "4.24.6",
-    "@trpc/client": "10.11.0",
-    "@trpc/react-query": "10.11.0",
-    "@trpc/server": "10.11.0",
-    "hono": "2.7.7",
+    "@tanstack/react-query": "4.24.9",
+    "@trpc/client": "10.12.0",
+    "@trpc/react-query": "10.12.0",
+    "@trpc/server": "10.12.0",
+    "hono": "2.7.8",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "zod": "3.20.6"
