@@ -1,15 +1,16 @@
-import { FC } from 'react'
-import { ClipSchema } from '../../schema/clip'
+import { useQuery } from '@tanstack/react-query'
+import { getClipList } from '../api/clip'
 import { ClipItem } from './clip-item'
 
-type ClipListProps = {
-  clips: ClipSchema[]
-}
+export const ClipList = () => {
+  const clipListQuery = useQuery({
+    queryKey: ['ClipList'],
+    queryFn: getClipList,
+  })
 
-export const ClipList: FC<ClipListProps> = ({ clips }) => {
   return (
     <ul className="clip-list">
-      {clips?.map((clip) => (
+      {clipListQuery.data?.clips.map((clip) => (
         <ClipItem key={clip.id} clip={clip} />
       ))}
     </ul>

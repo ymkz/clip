@@ -1,25 +1,28 @@
-import { useQueryClient } from '@tanstack/react-query'
-import { FC } from 'react'
-import { ClipSchema } from '../../schema/clip'
-import { trpc } from '../../util/trpc'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
+import type { FC } from 'react'
+import { useCallback } from 'react'
+import { Clip } from '../../schema/clip'
+import { deleteClip } from '../api/clip'
 import { IconDelete } from './icon-delete'
 import { IconImage } from './icon-image'
 
 type ClipItemProps = {
-  clip: ClipSchema
+  clip: Clip
 }
 
 export const ClipItem: FC<ClipItemProps> = ({ clip }) => {
   const queryClient = useQueryClient()
-  const mutation = trpc.clip.remove.useMutation({
-    onSuccess: () => {
-      queryClient.invalidateQueries(trpc.clip.list.getQueryKey())
+
+  const clipDeleteMutation = useMutation({
+    mutationFn: deleteClip,
+    onSuccess: async () => {
+      await queryClient.invalidateQueries({ queryKey: ['ClipList'] })
     },
   })
 
-  const handleClick = () => {
-    mutation.mutate({ id: clip.id })
-  }
+  const handleClick = useCallback(() => {
+    clipDeleteMutation.mutate({ id: clip.id })
+  }, [clip.id])
 
   return (
     <li className="clip-item">

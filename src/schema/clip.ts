@@ -7,13 +7,17 @@ export const clipSchema = z.object({
   description: z.string().nullish(),
   hasImage: z.boolean().nullish(),
 })
-export type ClipSchema = z.infer<typeof clipSchema>
+export type Clip = z.infer<typeof clipSchema>
 
-export const clipAddSchema = z.object({ url: z.string().url() })
-export type ClipAddSchema = z.infer<typeof clipAddSchema>
+export const clipAddSchema = z.object({
+  url: z.string().url(),
+})
+export type ClipAddInput = z.infer<typeof clipAddSchema>
 
-export const clipRemoveSchema = z.object({ id: z.string() })
-export type ClipRemoveSchema = z.infer<typeof clipRemoveSchema>
+export const clipDeleteSchema = z.object({
+  id: z.string(),
+})
+export type ClipRemoveInput = z.infer<typeof clipDeleteSchema>
 
 export type ClipImage = {
   src: ArrayBuffer

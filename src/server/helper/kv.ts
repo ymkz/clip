@@ -1,8 +1,8 @@
-import { ClipImage, ClipImageMetaData, ClipSchema } from '../../schema/clip'
+import { Clip, ClipImage, ClipImageMetaData } from '../../schema/clip'
 import { createKVError } from './error'
 
-export const getClipData = async (kv: KVNamespace): Promise<ClipSchema[]> => {
-  const data = await kv.get<ClipSchema[]>('clip-data', 'json').catch((err) => {
+export const getClipData = async (kv: KVNamespace): Promise<Clip[]> => {
+  const data = await kv.get<Clip[]>('clip-data', 'json').catch((err) => {
     throw createKVError({ reason: 'failed to get clip data', cause: err })
   })
   return data ?? []
@@ -10,7 +10,7 @@ export const getClipData = async (kv: KVNamespace): Promise<ClipSchema[]> => {
 
 export const addClipItem = async (
   kv: KVNamespace,
-  data: ClipSchema
+  data: Clip
 ): Promise<void> => {
   const prev = await getClipData(kv)
   const next = [data, ...prev]
@@ -21,7 +21,7 @@ export const addClipItem = async (
 
 export const deleteClipItem = async (
   kv: KVNamespace,
-  id: ClipSchema['id']
+  id: Clip['id']
 ): Promise<void> => {
   const prev = await getClipData(kv)
   const next = prev.filter((item) => item.id !== id)
@@ -32,7 +32,7 @@ export const deleteClipItem = async (
 
 export const getClipImage = async (
   kv: KVNamespace,
-  key: ClipSchema['id']
+  key: Clip['id']
 ): Promise<ClipImage> => {
   const image = await kv
     .getWithMetadata<ClipImageMetaData>(key, 'arrayBuffer')
@@ -52,7 +52,7 @@ export const getClipImage = async (
 
 export const addClipImage = async (
   kv: KVNamespace,
-  key: ClipSchema['id'],
+  key: Clip['id'],
   image: ClipImage
 ): Promise<void> => {
   await kv
@@ -66,7 +66,7 @@ export const addClipImage = async (
 
 export const deleteClipImage = async (
   kv: KVNamespace,
-  key: ClipSchema['id']
+  key: Clip['id']
 ): Promise<void> => {
   await kv.delete(key).catch((err) => {
     throw createKVError({ reason: 'failed to delete clip image', cause: err })
