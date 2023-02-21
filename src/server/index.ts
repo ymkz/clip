@@ -13,15 +13,21 @@ import {
   getClipImage,
 } from './helper/kv'
 
-const app = new Hono<Env>()
+type AppEnv = {
+  Bindings: {
+    KV_CLIP: KVNamespace
+  }
+}
 
-const apiClipList = app.get('/api/clip/list', async (ctx) => {
+const app = new Hono<AppEnv>()
+
+const apiClipList = app.get('/api/list', async (ctx) => {
   const clips = await getClipData(ctx.env.KV_CLIP)
   return ctx.jsonT({ clips })
 })
 
 const apiClipDelte = app.delete(
-  '/api/clip/delete',
+  '/api/delete',
   zValidator('json', clipDeleteSchema),
   async (ctx) => {
     const { id } = ctx.req.valid('json')
@@ -35,7 +41,7 @@ const apiClipDelte = app.delete(
   }
 )
 
-app.post('/api/clip/add', zValidator('json', clipAddSchema), async (ctx) => {
+app.post('/api/add', zValidator('json', clipAddSchema), async (ctx) => {
   const { url } = ctx.req.valid('json')
 
   const clipInfo = await getClipInfo(url)
