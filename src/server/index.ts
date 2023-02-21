@@ -54,7 +54,7 @@ app.post('/api/clip/add', zValidator('json', clipAddSchema), async (ctx) => {
 
   await addClipItem(ctx.env.KV_CLIP, clip)
 
-  return ctx.jsonT({ result: 'added' })
+  return ctx.json({ result: 'added' })
 })
 
 app.get('/image/:key', async (ctx) => {
