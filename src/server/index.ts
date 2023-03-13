@@ -22,8 +22,8 @@ type AppEnv = {
 const app = new Hono<AppEnv>()
 
 const apiClipList = app.get('/api/list', async (ctx) => {
-  const clips = await getClipData(ctx.env.KV_CLIP)
-  return ctx.jsonT({ clips })
+  const clipList = await getClipData(ctx.env.KV_CLIP)
+  return ctx.jsonT(clipList)
 })
 
 const apiClipDelte = app.delete(
