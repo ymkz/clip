@@ -1,0 +1,14 @@
+{
+  "name": "@clip/common",
+  "private": true,
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "lint": "tsc --noEmit && prettier --check .",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "zod": "3.21.4"
+  }
+}

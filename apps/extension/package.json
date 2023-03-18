@@ -1,0 +1,16 @@
+{
+  "name": "@clip/extension",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "lint": "tsc --noEmit && prettier --check .",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "@crxjs/vite-plugin": "2.0.0-beta.14",
+    "@types/chrome": "0.0.224",
+    "vite": "4.2.0"
+  }
+}

@@ -1,0 +1,17 @@
+compatibility_date = "2023-03-01"
+
+name = "clip"
+main = "./src/index.ts"
+
+workers_dev = false
+
+[[kv_namespaces]]
+binding = "KV_CLIP"
+id = "ef6ddb45fac643a4847ba5e6dd888a9d"         # clip
+preview_id = "adf3c5007b954bc189c1f0909bbea0ac" # test
+
+[site]
+bucket = "../client/dist"
+
+[dev]
+port = 3001

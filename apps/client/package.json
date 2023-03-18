@@ -1,0 +1,26 @@
+{
+  "name": "@clip/client",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "lint": "tsc --noEmit && prettier --check .",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "@clip/common": "*",
+    "@clip/server": "*",
+    "@tanstack/react-query": "4.27.0",
+    "hono": "3.1.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "4.20230307.0",
+    "@types/react": "18.0.28",
+    "@types/react-dom": "18.0.11",
+    "@vitejs/plugin-react-swc": "3.2.0",
+    "vite": "4.2.0"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "@clip/batch",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev --local --persist",
+    "lint": "tsc --noEmit && prettier --check .",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "@hono/zod-validator": "0.1.0",
+    "hono": "3.1.0",
+    "zod": "3.21.4"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "4.20230307.0",
+    "wrangler": "2.12.3"
+  }
+}
