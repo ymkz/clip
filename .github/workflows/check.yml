@@ -10,17 +10,7 @@ env:
   TZ: Asia/Tokyo
 
 jobs:
-  all:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version-file: '.node-version'
-      - run: npm ci
-      - run: npm run lint
   app:
-    needs: [all]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -29,8 +19,8 @@ jobs:
           node-version-file: '.node-version'
       - run: npm ci
       - run: npm run build
+      - run: npm run lint
   extension:
-    needs: [all]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
