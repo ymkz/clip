@@ -12,7 +12,7 @@
     "@clip/common": "*",
     "@clip/server": "*",
     "@tanstack/react-query": "4.27.0",
-    "hono": "3.1.0",
+    "hono": "3.1.1",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
