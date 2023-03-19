@@ -9,7 +9,7 @@
     "format": "prettier --write ."
   },
   "devDependencies": {
-    "@crxjs/vite-plugin": "2.0.0-beta.14",
+    "@crxjs/vite-plugin": "2.0.0-beta.15",
     "@types/chrome": "0.0.224",
     "vite": "4.2.0"
   }
