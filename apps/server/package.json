@@ -17,7 +17,7 @@
   },
   "devDependencies": {
     "@cloudflare/workers-types": "4.20230404.0",
-    "dts-bundle-generator": "7.2.0",
+    "dts-bundle-generator": "8.0.1",
     "wrangler": "2.14.0"
   }
 }
