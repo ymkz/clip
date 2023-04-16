@@ -1,11 +1,11 @@
-name: deploy-batch
+name: deploy-web
 
 on:
   push:
     branches:
       - main
     paths:
-      - 'batch/**'
+      - 'web/**'
       - 'package-lock.json'
   workflow_dispatch:
 
@@ -29,4 +29,3 @@ jobs:
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
           accountId: ${{ secrets.CF_ACCOUNT_ID }}
-          workingDirectory: 'batch'

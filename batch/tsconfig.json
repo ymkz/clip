@@ -3,18 +3,15 @@
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "bundler",
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "strict": true,
     "noEmit": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "isolatedModules": true,
     "resolveJsonModule": true,
-    "useDefineForClassFields": true,
     "allowSyntheticDefaultImports": true,
-    "forceConsistentCasingInFileNames": true,
-    "jsx": "react-jsx"
+    "forceConsistentCasingInFileNames": true
   },
-  "include": ["**/*.ts", "**/*.tsx", "vite.config.ts"],
+  "include": ["**/*.ts"],
   "exclude": ["node_modules"]
 }
