@@ -27,7 +27,6 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version-file: '.node-version'
-      - run: npm ci
       - run: npm ci --prefix batch
       - run: npm run lint --prefix batch
   check-extension:
@@ -37,6 +36,6 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version-file: '.node-version'
-      - run: npm ci
+      - run: npm ci --prefix extension
       - run: npm run lint --prefix extension
       - run: npm run build --prefix extension
