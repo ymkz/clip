@@ -10,7 +10,7 @@ env:
   TZ: Asia/Tokyo
 
 jobs:
-  app:
+  check-web:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -18,9 +18,9 @@ jobs:
         with:
           node-version-file: '.node-version'
       - run: npm ci
-      - run: npm run build
       - run: npm run lint
-  extension:
+      - run: npm run build
+  check-batch:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -28,4 +28,16 @@ jobs:
         with:
           node-version-file: '.node-version'
       - run: npm ci
-      - run: npm run build:extension
+      - run: npm ci --prefix batch
+      - run: npm run lint --prefix batch
+  check-extension:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: '.node-version'
+      - run: npm ci
+      - run: npm ci --prefix extension
+      - run: npm run lint --prefix extension
+      - run: npm run build --prefix extension
