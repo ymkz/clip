@@ -29,7 +29,9 @@ export async function getClipInfo(url: string): Promise<ClipInfo> {
     .transform(response.clone())
     .text()
     .catch((err) => {
-      throw new Error(`clip info cannot parse: ${url}`, { cause: err })
+      throw new Error(`ClipInfoのHTMLのパースに失敗しました: ${url}`, {
+        cause: err,
+      })
     })
 
   const title =
@@ -59,7 +61,7 @@ export async function getClipInfo(url: string): Promise<ClipInfo> {
   }
 
   if (!isValidHttpUrl(imageUrl)) {
-    console.error(`imageUrl is not valid as http url: ${imageUrl}`)
+    console.error(`HTTPのURLとして不正なURLです: ${imageUrl}`)
     return result
   }
 
@@ -96,14 +98,20 @@ const fetchClipInfo = async (url: string): Promise<Response> => {
 
   const response = await fetch(url, { headers: { 'user-agent': UA } }).catch(
     (err) => {
-      throw new Error(`client error when fetch clip info: ${url}`, {
+      throw new Error(`ClipInfo取得時のネットワークエラー: ${url}`, {
         cause: err,
       })
     }
   )
 
   if (!response.ok) {
-    throw new Error(`bad response from server when fetch clip info: ${url}`)
+    const errText = await response.text().catch((err) => {
+      throw new Error(
+        `ClipInfo取得時に予期しないエラーがレスポンスされました: ${url}`,
+        { cause: err }
+      )
+    })
+    throw new Error(errText)
   }
 
   return response
@@ -111,19 +119,28 @@ const fetchClipInfo = async (url: string): Promise<Response> => {
 
 const fetchClipImage = async (url: string): Promise<ClipImage> => {
   const response = await fetch(url).catch((err) => {
-    throw new Error(`client error when fetch clip image: ${url}`, {
+    throw new Error(`ClipImage取得時のネットワークエラー: ${url}`, {
       cause: err,
     })
   })
 
   if (!response.ok) {
-    throw new Error(`bad response from server when fetch clip image: ${url}`)
+    const errText = await response.text().catch((err) => {
+      throw new Error(
+        `ClipImage取得時に予期しないエラーがレスポンスされました: ${url}`,
+        { cause: err }
+      )
+    })
+    throw new Error(errText)
   }
 
   const arrayBuffer = await response.arrayBuffer().catch((err) => {
-    throw new Error(`clip image cannot parse as ArrayBuffer: ${url}`, {
-      cause: err,
-    })
+    throw new Error(
+      `ClipImage取得時にArrayBufferのパースに失敗しました: ${url}`,
+      {
+        cause: err,
+      }
+    )
   })
 
   const contentType =

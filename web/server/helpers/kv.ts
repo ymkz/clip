@@ -30,7 +30,7 @@ export const getClipImage = async (
   const image = await kv.getWithMetadata<ClipImageMetaData>(key, 'arrayBuffer')
 
   if (!image.value || !image.metadata) {
-    throw new Error('not found clip image')
+    throw new Error('存在しないClipImageです')
   }
 
   return {
