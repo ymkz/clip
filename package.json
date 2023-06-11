@@ -17,13 +17,13 @@
   },
   "devDependencies": {
     "@cloudflare/workers-types": "4.20230518.0",
-    "@types/node": "18.16.16",
-    "@types/react": "18.2.8",
+    "@types/node": "18.16.17",
+    "@types/react": "18.2.11",
     "@types/react-dom": "18.2.4",
     "@vitejs/plugin-react-swc": "3.3.2",
     "prettier": "2.8.8",
     "typescript": "5.1.3",
     "vite": "4.3.9",
-    "wrangler": "3.0.1"
+    "wrangler": "3.1.0"
   }
 }
