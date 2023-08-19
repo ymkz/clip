@@ -8,12 +8,12 @@
     "format": "prettier --write ."
   },
   "dependencies": {
-    "@hono/zod-validator": "0.1.5",
-    "@tanstack/react-query": "4.32.6",
-    "hono": "3.4.1",
+    "@hono/zod-validator": "0.1.8",
+    "@tanstack/react-query": "4.33.0",
+    "hono": "3.4.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "zod": "3.21.4"
+    "zod": "3.22.2"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "4.20230807.0",
