@@ -16,14 +16,14 @@
     "zod": "3.22.2"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "4.20230807.0",
-    "@types/node": "18.17.5",
+    "@cloudflare/workers-types": "4.20230814.0",
+    "@types/node": "18.17.6",
     "@types/react": "18.2.20",
     "@types/react-dom": "18.2.7",
     "@vitejs/plugin-react-swc": "3.3.2",
     "prettier": "2.8.8",
     "typescript": "5.1.6",
     "vite": "4.4.9",
-    "wrangler": "3.5.0"
+    "wrangler": "3.5.1"
   }
 }
